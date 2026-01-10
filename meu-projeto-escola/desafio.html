@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão Diária - 2.º Ano</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { 
+            background-color: #ff7675; 
+            color: white; 
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container-missao {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .btn-voltar {
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
+        /* Garantir que as opções dentro da zona-pergunta fiquem visíveis */
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-missao">
+        <h1>🚀 Missão do Dia</h1>
+        
+        <div id="zona-pergunta">
+            <p>Prepara-te! Vamos testar os teus conhecimentos de hoje em todas as matérias (8 de cada).</p>
+            <button class="missao" onclick="iniciarDesafio()">Começar Desafio!</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-voltar">⬅ Sair da Missão / Voltar ao Menu</a>
+
+    <script src="js/exercicios.js"></script>
+    <script src="js/progresso.js"></script>
+
+</body>
+</html>
