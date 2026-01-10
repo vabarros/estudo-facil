@@ -100,6 +100,11 @@ function mostrarFeedback(msg, tipo, aguardarClique = false) {
 }
 
 function proximaQuestao() {
+    // Remove o contorno/foco do botão clicado anteriormente
+    if (document.activeElement) {
+        document.activeElement.blur();
+    }
+    
     indiceAtual++;
     renderizarQuestao();
 }
