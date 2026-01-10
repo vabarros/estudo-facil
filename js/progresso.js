@@ -100,11 +100,15 @@ function mostrarFeedback(msg, tipo, aguardarClique = false) {
 }
 
 function proximaQuestao() {
-    // Remove o contorno/foco do botão clicado anteriormente
-    if (document.activeElement) {
+    // 1. Força a saída do foco do botão atual
+    if (document.activeElement instanceof HTMLElement) {
         document.activeElement.blur();
     }
     
+    // 2. Pequena limpeza visual no container antes de renderizar
+    const zona = document.getElementById('zona-pergunta');
+    if(zona) zona.focus(); // Move o foco para a área geral, longe dos botões
+
     indiceAtual++;
     renderizarQuestao();
 }
