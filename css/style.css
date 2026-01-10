@@ -127,3 +127,24 @@ body {
     85% { opacity: 1; top: 20px; }
     100% { opacity: 0; top: -50px; }
 }
+
+/* Correção para Mobile: Remove o destaque e o foco persistente */
+.btn-opcao, .missao, .card {
+    -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar (iOS/Android) */
+    outline: none !important; /* Remove o contorno de seleção */
+}
+
+/* Garante que o estado de "hover" do PC não fique "preso" no telemóvel */
+@media (hover: none) {
+    .btn-opcao:hover, .card:hover {
+        background: #f9f9f9; /* Mantém a cor original */
+        transform: none;      /* Remove o movimento de subir */
+        border-color: #ddd;  /* Mantém a borda original */
+    }
+}
+
+/* Remove a "luz" ou contorno preto/azul quando o botão é focado */
+.btn-opcao:focus {
+    outline: none;
+    box-shadow: none;
+}
