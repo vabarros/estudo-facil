@@ -138,8 +138,8 @@ function finalizarSessao() {
         <div class="card-pergunta">
             <h2>🎉 Sessão Terminada!</h2>
             <p>Concluíste todas as questões desta missão.</p>
-            <button class="missao" onclick="${modoDesafio ? 'iniciarDesafio()' : `treinar('${materiaAtiva}')`}">🔄 Treinar Novamente</button>
-            <button class="missao" style="background:#636e72" onclick="window.location.href='../index.html'">🏠 Voltar ao Menu</button>
+            <button class="missao" onclick="${modoDesafio ? 'iniciarDesafio()' : `treinar('${materiaAtiva}')`}"> Treinar Novamente</button>
+            <button class="missao" style="background:#636e72" onclick="window.location.href='../index.html'"> Voltar ao Menu</button>
         </div>
     `;
 }
@@ -153,7 +153,7 @@ function atualizarPanorama() {
     const status = document.getElementById('status');
     if(!status) return;
     
-    let html = "<h3>📊 O teu Panorama de Foco:</h3>";
+    let html = "<h3> O teu Panorama de Foco:</h3>";
     for (let m in progresso) {
         let percent = progresso[m].total > 0 ? Math.round((progresso[m].acertos / progresso[m].total) * 100) : 0;
         let cor = percent < 50 ? "#e74c3c" : "#2ecc71";
@@ -163,6 +163,24 @@ function atualizarPanorama() {
                  </div></p>`;
     }
     status.innerHTML = html;
+}
+
+function resetarProgresso() {
+    if (confirm("Tens a certeza que queres apagar todas as tuas estrelas e progresso?")) {
+        // Remove especificamente a chave que o teu código usa
+        localStorage.removeItem('estudoApp');
+        
+        // Reinicia a variável local para o estado inicial
+        progresso = {
+            portugues: { acertos: 0, total: 0 },
+            matematica: { acertos: 0, total: 0 },
+            estudoMeio: { acertos: 0, total: 0 }
+        };
+
+        // Força a atualização visual e da memória
+        atualizarPanorama();
+        location.reload(); 
+    }
 }
 
 window.onload = atualizarPanorama;
