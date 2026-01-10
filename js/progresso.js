@@ -1,0 +1,168 @@
+let progresso = JSON.parse(localStorage.getItem('estudoApp')) || {
+    portugues: { acertos: 0, total: 0 },
+    matematica: { acertos: 0, total: 0 },
+    estudoMeio: { acertos: 0, total: 0 }
+};
+
+let perguntasAtuais = [];
+let indiceAtual = 0;
+let materiaAtiva = "";
+let modoDesafio = false;
+
+// --- SISTEMA DE NÃO REPETIÇÃO ---
+// Guardamos o ID das perguntas já feitas nesta sessão
+let perguntasFeitasIds = []; 
+
+function renderizarQuestao() {
+    const zona = document.getElementById('zona-pergunta');
+    
+    if (indiceAtual >= perguntasAtuais.length) {
+        finalizarSessao();
+        return;
+    }
+
+    const item = perguntasAtuais[indiceAtual];
+    
+    let html = `<div class="card-pergunta">
+        <span class="badge">${item.materia.toUpperCase()}</span>
+        <h3>Pergunta ${indiceAtual + 1} de ${perguntasAtuais.length}</h3>
+        <p class="texto-pergunta">${item.q}</p>
+        <div class="opcoes" id="opcoes-container">`;
+    
+    item.o.forEach((op, i) => {
+        html += `<button class="btn-opcao" onclick="verificarResposta(${i})">${op}</button>`;
+    });
+
+    html += `</div></div>`;
+    zona.innerHTML = html;
+}
+
+function verificarResposta(escolha) {
+    const item = perguntasAtuais[indiceAtual];
+    const acertou = escolha === item.r;
+    
+    // Bloquear cliques extras nos botões de opção
+    const botoes = document.querySelectorAll('.btn-opcao');
+    botoes.forEach(b => b.disabled = true);
+
+    if (acertou) {
+        progresso[item.materia].acertos++;
+        mostrarFeedback("✅ CORRETO! Parabéns!", "sucesso");
+        
+        // Se estiver certa, dura 3 segundos e pula automaticamente
+        setTimeout(() => {
+            proximaQuestao();
+        }, 3000);
+
+    } else {
+        const respostaCerta = item.o[item.r];
+        // Se errar, mostra a explicação e só passa ao clicar
+        mostrarFeedback(
+            `❌ ERRADO! <br> A resposta certa era: <strong>${respostaCerta}</strong>. <br><br> 
+            <em>Clica em qualquer lugar para continuar...</em>`, 
+            "erro", 
+            true // Indica que precisa de clique
+        );
+    }
+    
+    progresso[item.materia].total++;
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+}
+
+function mostrarFeedback(msg, tipo, aguardarClique = false) {
+    // Remover feedbacks antigos se existirem
+    const antigo = document.querySelector('.feedback-toast');
+    if(antigo) antigo.remove();
+
+    const toast = document.createElement('div');
+    toast.className = `feedback-toast feedback-${tipo}`;
+    toast.innerHTML = msg;
+    document.body.appendChild(toast);
+    
+    if (aguardarClique) {
+        // Cria um fundo invisível que deteta o clique em "qualquer canto"
+        const overlay = document.createElement('div');
+        overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; z-index:999;";
+        document.body.appendChild(overlay);
+
+        const avancar = () => {
+            toast.remove();
+            overlay.remove();
+            window.removeEventListener('click', avancar);
+            proximaQuestao();
+        };
+
+        // Adiciona o evento de clique para avançar apenas no erro
+        setTimeout(() => { 
+            window.addEventListener('click', avancar);
+        }, 500); // Pequeno atraso para evitar cliques acidentais
+    }
+}
+
+function proximaQuestao() {
+    indiceAtual++;
+    renderizarQuestao();
+}
+
+// Inicia 5 perguntas sem repetir
+function treinar(materia) {
+    materiaAtiva = materia;
+    modoDesafio = false;
+    indiceAtual = 0;
+    
+    // Filtramos o banco para pegar apenas o que ainda não foi muito usado nesta sessão
+    let todas = shuffle([...bancoDados[materia]]);
+    perguntasAtuais = todas.slice(0, 5).map(q => ({...q, materia}));
+    
+    renderizarQuestao();
+}
+
+// Desafio Diário: 8 de cada sem repetir
+function iniciarDesafio() {
+    modoDesafio = true;
+    indiceAtual = 0;
+    
+    const p8 = shuffle([...bancoDados.portugues]).slice(0, 8).map(q => ({...q, materia: 'portugues'}));
+    const m8 = shuffle([...bancoDados.matematica]).slice(0, 8).map(q => ({...q, materia: 'matematica'}));
+    const e8 = shuffle([...bancoDados.estudoMeio]).slice(0, 8).map(q => ({...q, materia: 'estudoMeio'}));
+    
+    perguntasAtuais = shuffle([...p8, ...m8, ...e8]);
+    renderizarQuestao();
+}
+
+function finalizarSessao() {
+    const zona = document.getElementById('zona-pergunta');
+    if(typeof atualizarPanorama === "function") atualizarPanorama();
+    
+    zona.innerHTML = `
+        <div class="card-pergunta">
+            <h2>🎉 Sessão Terminada!</h2>
+            <p>Concluíste todas as questões desta missão.</p>
+            <button class="missao" onclick="${modoDesafio ? 'iniciarDesafio()' : `treinar('${materiaAtiva}')`}">🔄 Treinar Novamente</button>
+            <button class="missao" style="background:#636e72" onclick="window.location.href='../index.html'">🏠 Voltar ao Menu</button>
+        </div>
+    `;
+}
+
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+// Atualiza o ecrã inicial
+function atualizarPanorama() {
+    const status = document.getElementById('status');
+    if(!status) return;
+    
+    let html = "<h3>📊 O teu Panorama de Foco:</h3>";
+    for (let m in progresso) {
+        let percent = progresso[m].total > 0 ? Math.round((progresso[m].acertos / progresso[m].total) * 100) : 0;
+        let cor = percent < 50 ? "#e74c3c" : "#2ecc71";
+        html += `<p><strong>${m.toUpperCase()}:</strong> ${percent}% de acerto (${progresso[m].acertos}/${progresso[m].total}) 
+                 <div style="background:#eee; height:10px; border-radius:5px;">
+                    <div style="background:${cor}; width:${percent}%; height:10px; border-radius:5px;"></div>
+                 </div></p>`;
+    }
+    status.innerHTML = html;
+}
+
+window.onload = atualizarPanorama;
