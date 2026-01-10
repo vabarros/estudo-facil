@@ -1,18 +1,22 @@
+/* --- CONFIGURAÇÕES GLOBAIS --- */
 :root {
-    --cor-portugues: #FFD966;  /* */
-    --cor-matematica: #CFE2F3; /* */
-    --cor-estudo: #D9EAD3;     /* */
+    --cor-portugues: #FFD966;
+    --cor-matematica: #CFE2F3;
+    --cor-estudo: #D9EAD3;
     --cor-missao: #ff7675;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     text-align: center;
     padding: 20px;
     margin: 0;
+    /* Impede o "pull-to-refresh" acidental em alguns browsers mobile */
+    overscroll-behavior-y: contain; 
 }
 
+/* --- MENU INICIAL --- */
 .menu {
     display: flex;
     justify-content: center;
@@ -29,14 +33,18 @@ body {
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: 0.3s;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.card:hover { transform: translateY(-5px); }
+.card:hover { 
+    transform: translateY(-5px); 
+}
 
 .pt { background: var(--cor-portugues); border: 2px solid #e1b12c; }
 .mat { background: var(--cor-matematica); border: 2px solid #a4b0be; }
 .est { background: var(--cor-estudo); border: 2px solid #78e08f; }
 
+/* --- BOTÕES DE MISSÃO --- */
 .missao {
     background: var(--cor-missao);
     color: white;
@@ -47,9 +55,12 @@ body {
     cursor: pointer;
     display: inline-block;
     margin-bottom: 20px;
+    border: none;
     box-shadow: 0 4px 10px rgba(255,118,117,0.3);
+    -webkit-tap-highlight-color: transparent;
 }
 
+/* --- PANORAMA / STATUS --- */
 #panorama {
     background: white;
     max-width: 500px;
@@ -60,12 +71,14 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
+/* --- ÁREA DE PERGUNTAS --- */
 .card-pergunta {
     background: white;
     padding: 20px;
     border-radius: 15px;
     margin: 20px auto;
     max-width: 500px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .texto-pergunta {
@@ -79,6 +92,7 @@ body {
     gap: 10px;
 }
 
+/* --- BOTÕES DE OPÇÃO (CORREÇÃO DE FOCO) --- */
 .btn-opcao {
     padding: 15px;
     font-size: 1.1rem;
@@ -86,14 +100,31 @@ body {
     border-radius: 10px;
     background: #f9f9f9;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background 0.2s, border-color 0.2s;
+    /* Remove o brilho azul nativo do Android/iOS */
+    -webkit-tap-highlight-color: transparent; 
+    /* Remove o contorno de seleção */
+    outline: none !important;
 }
 
-.btn-opcao:hover {
-    background: #e1f5fe;
-    border-color: #0097a7;
+/* Efeito apenas para computadores (com rato) */
+@media (hover: hover) {
+    .btn-opcao:hover {
+        background: #e1f5fe;
+        border-color: #0097a7;
+    }
 }
-/* Mensagem Flutuante (Feedback) Atualizada */
+
+/* REMOÇÃO TOTAL DE FOCO PERSISTENTE EM MOBILE */
+.btn-opcao:focus, 
+.btn-opcao:active, 
+.btn-opcao:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* --- FEEDBACK TOASTS --- */
 .feedback-toast {
     position: fixed;
     top: 20px;
@@ -108,17 +139,16 @@ body {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     max-width: 80%;
-    cursor: pointer; /* Indica que pode clicar para passar */
+    cursor: pointer;
 }
 
 .feedback-sucesso { 
     background-color: #2ecc71; 
-    animation: fadeInOut 3s forwards; /* Dura 3 segundos se estiver certa */
+    animation: fadeInOut 3s forwards; 
 }
 
 .feedback-erro { 
     background-color: #e74c3c; 
-    opacity: 1; /* Não some sozinha no erro */
 }
 
 @keyframes fadeInOut {
@@ -128,23 +158,8 @@ body {
     100% { opacity: 0; top: -50px; }
 }
 
-/* Correção para Mobile: Remove o destaque e o foco persistente */
-.btn-opcao, .missao, .card {
-    -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar (iOS/Android) */
-    outline: none !important; /* Remove o contorno de seleção */
-}
-
-/* Garante que o estado de "hover" do PC não fique "preso" no telemóvel */
-@media (hover: none) {
-    .btn-opcao:hover, .card:hover {
-        background: #f9f9f9; /* Mantém a cor original */
-        transform: none;      /* Remove o movimento de subir */
-        border-color: #ddd;  /* Mantém a borda original */
-    }
-}
-
-/* Remove a "luz" ou contorno preto/azul quando o botão é focado */
-.btn-opcao:focus {
-    outline: none;
-    box-shadow: none;
+/* --- AJUSTE PARA ECRÃS PEQUENOS --- */
+@media (max-width: 600px) {
+    .card { width: 140px; padding: 15px; }
+    .texto-pergunta { font-size: 1.2rem; }
 }
