@@ -26,16 +26,62 @@ function renderizarQuestao() {
     let html = `<div class="card-pergunta">
         <span class="badge">${item.materia.toUpperCase()}</span>
         <h3>Pergunta ${indiceAtual + 1} de ${perguntasAtuais.length}</h3>
-        <p class="texto-pergunta">${item.q}</p>
-        <div class="opcoes" id="opcoes-container">`;
-    
-    item.o.forEach((op, i) => {
-        html += `<button class="btn-opcao" onclick="verificarResposta(${i})">${op}</button>`;
-    });
+        <p class="texto-pergunta">${item.q}</p>`;
 
-    html += `</div></div>`;
+    if (item.tipo === "input") {
+        // Renderiza campo de texto para contas
+        html += `
+            <div class="input-container">
+                <input type="number" id="resposta-user" class="input-resposta" placeholder="?" autofocus>
+                <button class="missao" onclick="verificarRespostaInput()">Verificar Conta</button>
+            </div>
+        `;
+    } else {
+        // Renderiza botões normais
+        html += `<div class="opcoes">`;
+        item.o.forEach((op, i) => {
+            html += `<button class="btn-opcao" onclick="verificarResposta(${i})">${op}</button>`;
+        });
+        html += `</div>`;
+    }
+
+    html += `</div>`;
     zona.innerHTML = html;
+
+    // Focar automaticamente no campo se for input
+    if(item.tipo === "input") {
+        setTimeout(() => document.getElementById('resposta-user').focus(), 100);
+    }
 }
+
+function verificarRespostaInput() {
+    const input = document.getElementById('resposta-user');
+    const valorUser = parseInt(input.value);
+    const item = perguntasAtuais[indiceAtual];
+
+    if (isNaN(valorUser)) {
+        alert("Por favor, escreve um número!");
+        return;
+    }
+
+    const acertou = valorUser === item.r;
+
+    if (acertou) {
+        progresso[item.materia].acertos++;
+        mostrarFeedback("✅ EXCELENTE! Conta certa!", "sucesso");
+        setTimeout(proximaQuestao, 2000);
+    } else {
+        mostrarFeedback(
+            `❌ Quase! <br> O resultado era <strong>${item.r}</strong>. <br><br> 
+            <em>Clica para continuar...</em>`, 
+            "erro", 
+            true
+        );
+    }
+    
+    progresso[item.materia].total++;
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+}ß
 
 function verificarResposta(escolha) {
     const item = perguntasAtuais[indiceAtual];
