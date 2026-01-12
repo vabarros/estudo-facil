@@ -100,6 +100,13 @@ const bancoDados = {
         { q: "Qual é a sílaba tónica de 'Jacaré'?", o: ["Ja", "ca", "ré"], r: 2 },
     ],
     matematica: [
+
+        // NOVOS EXERCÍCIOS DE CONTA (INPUT)
+        { q: "Calcula: 120 + 30", tipo: "input", r: 150, materia: "matematica" },
+        { q: "Quanto é 300 - 50?", tipo: "input", r: 250, materia: "matematica" },
+        { q: "Decompõe: 342 = 300 + 40 + __", tipo: "input", r: 2, materia: "matematica" },
+        { q: "Qual é o dobro de 25?", tipo: "input", r: 50, materia: "matematica" },
+        { q: "Completa a sequência: 10, 20, 30, __", tipo: "input", r: 40, materia: "matematica" }
         // --- 1. NÚMEROS E OPERAÇÕES (Até 399, Dobro, Metade, Pares/Ímpares) ---
         { q: "Qual número vem logo a seguir ao 398?", o: ["397", "399"], r: 1 },
         { q: "Qual o antecessor de 300?", o: ["299", "301"], r: 0 },
