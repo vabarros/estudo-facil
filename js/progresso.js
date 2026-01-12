@@ -200,7 +200,7 @@ function finalizarSessao() {
 }
 
 function shuffle(array) {
-    return array.sort(() => Math.random() - 0.10);
+    return array.sort(() => Math.random() - 0.5);
 }
 
 // Atualiza o ecrã inicial
