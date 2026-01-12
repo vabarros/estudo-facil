@@ -81,7 +81,7 @@ function verificarRespostaInput() {
     
     progresso[item.materia].total++;
     localStorage.setItem('estudoApp', JSON.stringify(progresso));
-}ß
+}
 
 function verificarResposta(escolha) {
     const item = perguntasAtuais[indiceAtual];
