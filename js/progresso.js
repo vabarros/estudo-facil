@@ -98,7 +98,7 @@ function verificarResposta(escolha) {
         // Se estiver certa, dura 3 segundos e pula automaticamente
         setTimeout(() => {
             proximaQuestao();
-        }, 3000);
+        }, 2000);
 
     } else {
         const respostaCerta = item.o[item.r];
@@ -159,7 +159,7 @@ function proximaQuestao() {
     renderizarQuestao();
 }
 
-// Inicia 5 perguntas sem repetir
+// Inicia 10 perguntas sem repetir
 function treinar(materia) {
     materiaAtiva = materia;
     modoDesafio = false;
@@ -167,19 +167,19 @@ function treinar(materia) {
     
     // Filtramos o banco para pegar apenas o que ainda não foi muito usado nesta sessão
     let todas = shuffle([...bancoDados[materia]]);
-    perguntasAtuais = todas.slice(0, 5).map(q => ({...q, materia}));
+    perguntasAtuais = todas.slice(0, 10).map(q => ({...q, materia}));
     
     renderizarQuestao();
 }
 
-// Desafio Diário: 8 de cada sem repetir
+// Desafio Diário: 5 de cada sem repetir
 function iniciarDesafio() {
     modoDesafio = true;
     indiceAtual = 0;
     
-    const p8 = shuffle([...bancoDados.portugues]).slice(0, 8).map(q => ({...q, materia: 'portugues'}));
-    const m8 = shuffle([...bancoDados.matematica]).slice(0, 8).map(q => ({...q, materia: 'matematica'}));
-    const e8 = shuffle([...bancoDados.estudoMeio]).slice(0, 8).map(q => ({...q, materia: 'estudoMeio'}));
+    const p8 = shuffle([...bancoDados.portugues]).slice(0, 5).map(q => ({...q, materia: 'portugues'}));
+    const m8 = shuffle([...bancoDados.matematica]).slice(0, 5).map(q => ({...q, materia: 'matematica'}));
+    const e8 = shuffle([...bancoDados.estudoMeio]).slice(0, 5).map(q => ({...q, materia: 'estudoMeio'}));
     
     perguntasAtuais = shuffle([...p8, ...m8, ...e8]);
     renderizarQuestao();
@@ -200,7 +200,7 @@ function finalizarSessao() {
 }
 
 function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
+    return array.sort(() => Math.random() - 0.10);
 }
 
 // Atualiza o ecrã inicial
