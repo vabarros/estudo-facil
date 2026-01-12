@@ -1,105 +1,97 @@
 const bancoDados = {
     portugues: [
-        // --- 1. SÍLABA TÓNICA E CLASSIFICAÇÃO (Agudas, Graves, Esdruxulares) ---
-        { q: "Qual a sílaba tónica de 'Pássaro'?", o: ["Pás", "sa", "ro"], r: 0 },
-        { q: "Qual a sílaba tónica de 'Café'?", o: ["Ca", "Fé"], r: 1 },
-        { q: "Sílaba tónica de 'Relógio':", o: ["Re", "Ló", "gio"], r: 1 },
-        { q: "Sílaba tónica de 'Médico':", o: ["Mé", "di", "co"], r: 0 },
-        { q: "Qual a sílaba tónica de 'Computador'?", o: ["Com", "pu", "ta", "dor"], r: 3 },
-        { q: "Qual a sílaba tónica de 'Estrela'?", o: ["Es", "tre", "la"], r: 1 },
-        { q: "Sílaba tónica de 'Sapato':", o: ["Sa", "pa", "to"], r: 1 },
-        { q: "Na palavra 'Menino', a sílaba tónica é 'ni'. As outras são:", o: ["Átonas", "Tónicas"], r: 0 },
-        { q: "A palavra 'Pai' tem quantas sílabas átonas?", o: ["Zero (é monossílabo tónico)", "Uma"], r: 0 },
-        { q: "Na palavra 'Sapato', quais são as sílabas átonas?", o: ["'Sa' e 'to'", "'pa'"], r: 0 },
-        { q: "A palavra 'Janela' é uma palavra:", o: ["Esdruxular", "Grave", "Aguda"], r: 1 },
-        { q: "A palavra 'Jacaré' é uma palavra:", o: ["Aguda", "Grave"], r: 0 },
-        { q: "A palavra 'Lâmpada' é:", o: ["Aguda", "Grave", "Esdruxular"], r: 2 },
-        { q: "A palavra 'Sofá' é:", o: ["Aguda", "Grave"], r: 0 },
-        { q: "A palavra 'Pincel' é uma palavra:", o: ["Aguda", "Grave"], r: 0 },
-        { q: "A palavra 'Música' é uma palavra:", o: ["Grave", "Esdruxular"], r: 1 },
-        { q: "A palavra 'Rápido' é uma palavra:", o: ["Aguda", "Grave", "Esdruxular"], r: 2 },
-        { q: "A palavra 'Chaminé' é uma palavra:", o: ["Aguda", "Grave"], r: 0 },
-        { q: "A palavra 'Caderno' é uma palavra:", o: ["Aguda", "Grave"], r: 1 },
-        { q: "A palavra 'Boneca' é uma palavra:", o: ["Aguda", "Grave"], r: 1 },
+        // --- ORTOGRAFIA E REVISÃO (Fichas 1 a 10) ---
+        { q: "Na palavra 'exame', a letra 'x' tem o som de:", o: ["z", "ch", "cs"], r: 0 }, // Ficha 9
+        { q: "Qual destas palavras está escrita corretamente?", o: ["Bicicleta", "Bicicreta"], r: 0 }, // Ficha 10 (Grupos consonânticos)
+        { q: "Como se escreve o nome da estação do ano?", o: ["Inverno", "Inuerno"], r: 0 }, // Ficha 7 (am, em, im...)
+        { q: "Qual é o som do 'c' na palavra 'cebola'?", o: ["Som de 's'", "Som de 'k'"], r: 0 }, // Ficha 4
+        { q: "Indica a palavra que usa 'gu' corretamente:", o: ["Guerrilha", "Gerilha"], r: 0 }, // Ficha 6
 
-        // --- 2. DIVISÃO SILÁBICA E NÚMERO DE SÍLABAS ---
-        { q: "Como se separa a palavra 'Carro' (translineação)?", o: ["Ca-rro", "Car-ro"], r: 1 },
-        { q: "Como se separa 'Pássaro'?", o: ["Pás-sa-ro", "Páss-a-ro"], r: 0 },
-        { q: "Na separação silábica de 'Passarinho', os 'ss' ficam:", o: ["Juntos", "Separados"], r: 1 },
-        { q: "Como se separa a palavra 'Passarinho'?", o: ["Pas-sa-ri-nho", "Pa-ssa-ri-nho"], r: 0 },
-        { q: "Quantas sílabas tem 'Borboleta'?", o: ["3", "4", "5"], r: 1 },
-        { q: "'Sol' é uma palavra:", o: ["Monossílaba", "Dissílaba"], r: 0 },
-        { q: "'Escola' é uma palavra:", o: ["Dissílaba", "Trissílaba"], r: 1 },
-        { q: "'Hipopótamo' é uma palavra:", o: ["Trissílaba", "Polissílaba"], r: 1 },
-        { q: "A palavra 'Felicidade' é:", o: ["Trissílaba", "Polissílaba"], r: 1 },
-        { q: "Quantas sílabas tem 'Arco-íris'?", o: ["2", "4"], r: 1 },
+        // --- GRAMÁTICA: SÍLABAS E ACENTUAÇÃO (Fichas 11 a 17) ---
+        { q: "Classifica a palavra 'Livro' quanto ao número de sílabas:", o: ["Monossílaba", "Dissílaba", "Trissílaba"], r: 1 }, // Ficha 12
+        { q: "Na palavra 'Caneta', a sílaba tónica é:", o: ["Ca", "ne", "ta"], r: 1 }, // Ficha 15
+        { q: "Uma palavra que tem a sílaba tónica na penúltima sílaba é uma palavra:", o: ["Grave", "Aguda"], r: 0 }, // Ficha 15
+        { q: "Qual destas palavras precisa de um acento agudo (´)?", o: ["Agua", "Mesa", "Cadeira"], r: 0 }, // Ficha 14
+        { q: "A palavra 'Papel' é uma palavra:", o: ["Aguda (sílaba tónica na última)", "Grave (sílaba tónica na penúltima)"], r: 0 }, // Ficha 15
 
-        // --- 3. NOMES (Próprios, Comuns, Coletivos) ---
-        { q: "A palavra 'Lisboa' é um nome:", o: ["Comum", "Próprio"], r: 1 },
-        { q: "Escolha o nome próprio:", o: ["País", "Portugal"], r: 1 },
-        { q: "Qual destas palavras é um nome próprio?", o: ["Porto", "Cidade"], r: 0 },
-        { q: "Qual nome é próprio?", o: ["Rio", "Douro"], r: 1 },
-        { q: "Qual é um nome comum?", o: ["Maria", "Menina"], r: 1 },
-        { q: "O coletivo de 'Peixes' é:", o: ["Cardume", "Alcateia"], r: 0 },
-        { q: "O coletivo de 'Ovelhas' é:", o: ["Rebanho", "Matilha"], r: 0 },
-        { q: "O coletivo de 'Cães' é:", o: ["Matilha", "Alcateia"], r: 0 },
-        { q: "O coletivo de 'Livros' é:", o: ["Biblioteca", "Pinacoteca"], r: 0 },
+        // --- NOMES E FLEXÃO (Fichas 18 a 22) ---
+        { q: "Identifica o nome próprio na frase: 'O gato do Rui é bonito.'", o: ["gato", "Rui", "bonito"], r: 1 }, // Ficha 21
+        { q: "Qual é o género masculino do nome 'Galinha'?", o: ["Galo", "Pinto"], r: 0 }, // Ficha 22
+        { q: "Como se forma o plural da palavra 'Anel'?", o: ["Anéis", "Anels"], r: 0 }, // Ficha 22
+        { q: "A palavra 'cardume' é um nome:", o: ["Comum", "Próprio", "Coletivo"], r: 2 }, // Conteúdo de Nomes
+        { q: "Qual destas palavras é um nome comum?", o: ["Porto", "Cidade", "Maria"], r: 1 }, // Ficha 21
+        // --- ORTOGRAFIA E REVISÃO (Fichas 1 a 10) ---
+        { q: "Qual o som do 'x' na palavra 'exemplo'?", o: ["Som de 'z'", "Som de 'ch'", "Som de 's'"], r: 0 },
+        { q: "Qual palavra da Ficha 6 usa o 'u' mudo?", o: ["Guitarra", "Gema"], r: 0 },
+        { q: "Segundo a Ficha 7, como escrevemos antes de 'p' e 'b'?", o: ["Usamos 'm'", "Usamos 'n'"], r: 0 },
 
-        // --- 4. GÉNERO E NÚMERO (Masculino/Feminino, Plural) ---
-        { q: "Feminino de 'Ator':", o: ["Atriz", "Atora"], r: 0 },
-        { q: "Feminino de 'Leão' é:", o: ["Leoa", "Leoaia"], r: 0 },
-        { q: "Feminino de 'Cavalo'?", o: ["Égua", "Cavala"], r: 0 },
-        { q: "Qual o feminino de 'Cão'?", o: ["Cadela", "Cãozinha"], r: 0 },
-        { q: "Qual o feminino de 'Doutor'?", o: ["Doutora", "Doutoraia"], r: 0 },
-        { q: "Masculino de 'Galinha':", o: ["Galo", "Frango"], r: 0 },
-        { q: "O masculino de 'Ovelha' é:", o: ["Carneiro", "Bode"], r: 0 },
-        { q: "Feminino de 'Padrinho'?", o: ["Madrinha", "Mãe"], r: 0 },
-        { q: "Qual é o masculino de 'Madrinha'?", o: ["Padrinho", "Pai"], r: 0 },
-        { q: "Plural de 'Pão':", o: ["Pães", "Pãos"], r: 0 },
-        { q: "Plural de 'Animal':", o: ["Animais", "Animales"], r: 0 },
-        { q: "Plural de 'Funil':", o: ["Funis", "Funiles"], r: 0 },
-        { q: "Plural de 'Nariz'?", o: ["Narizes", "Narizs"], r: 0 },
-        { q: "Plural de 'Jardim'?", o: ["Jardins", "Jardims"], r: 0 },
-        { q: "Plural de 'Pai'?", o: ["Pais", "Paes"], r: 0 },
-        { q: "O plural de 'Jornal' é:", o: ["Jornais", "Jornals"], r: 0 },
-        { q: "O plural de 'Botão' é:", o: ["Botões", "Botãos"], r: 0 },
-        { q: "Escolha o plural de 'Lençol':", o: ["Lençóis", "Lençols"], r: 0 },
-        { q: "Plural de 'Balão' é:", o: ["Balões", "Balãos"], r: 0 },
+        // --- GRAMÁTICA: SÍLABAS E ACENTUAÇÃO (Fichas 11 a 17) ---
+        { q: "Na Ficha 12, a palavra 'Sol' é classificada como:", o: ["Monossílaba", "Dissílaba"], r: 0 },
+        { q: "Na Ficha 15, a sílaba tónica de 'Lápis' é 'Lá'. Ela é uma palavra:", o: ["Grave", "Aguda"], r: 0 },
+        { q: "Segundo a Ficha 14, qual destas palavras tem acento circunflexo?", o: ["Pêssego", "Maçã"], r: 0 },
+        { q: "Na Ficha 15, a palavra 'Papel' tem a última sílaba forte. Ela é:", o: ["Aguda", "Grave"], r: 0 },
+        { q: "Na Ficha 11, o que significa assinalar com uma cruz?", o: ["Escolha múltipla", "Construção de frase"], r: 0 },
 
-        // --- 5. ACENTUAÇÃO E SINAIS GRÁFICOS ---
-        { q: "Como se chama o sinal (~) em 'Mão'?", o: ["Acento Agudo", "Til"], r: 1 },
-        { q: "Como se chama o sinal por baixo da letra 'c' em 'Moça'?", o: ["Til", "Cedilha"], r: 1 },
-        { q: "Qual palavra usa o TIL (~)?", o: ["Maçã", "Música"], r: 0 },
-        { q: "A palavra 'Mão' usa o til porque o som é:", o: ["Aberto", "Nasal"], r: 1 },
-        { q: "'Árvore' tem acento:", o: ["Agudo (´)", "Circunflexo (^)"], r: 0 },
-        { q: "O que indica o acento circunflexo?", o: ["Som aberto", "Som fechado"], r: 1 },
-        { q: "Qual palavra tem acento circunflexo?", o: ["Ténis", "Lápis"], r: 0 },
-        { q: "O que indica o ponto de exclamação (!)?", o: ["Uma pergunta", "Uma surpresa ou ordem"], r: 1 },
-        { q: "O ponto de interrogação (?) serve para:", o: ["Fazer uma pergunta", "Dar uma ordem"], r: 0 },
-        { q: "O ponto final (.) serve para:", o: ["Terminar uma frase", "Fazer uma pergunta"], r: 0 },
+        // --- NOMES E FLEXÃO (Fichas 18 a 22) ---
+        { q: "Identifica o nome próprio na frase: 'O gato do Rui é bonito.'", o: ["gato", "Rui", "bonito"], r: 1 }, // Ficha 21
+        { q: "Qual é o género masculino do nome 'Galinha'?", o: ["Galo", "Pinto"], r: 0 }, // Ficha 22
+        { q: "Como se forma o plural da palavra 'Anel'?", o: ["Anéis", "Anels"], r: 0 }, // Ficha 22
+        { q: "A palavra 'cardume' (conjunto de peixes) é um nome:", o: ["Comum", "Próprio", "Coletivo"], r: 2 }, // Conteúdo de Nomes
+        { q: "Qual destas palavras é um nome comum?", o: ["Porto", "Cidade", "Maria"], r: 1 }, // Ficha 21
+        { q: "Qual o plural de 'Pão'?", o: ["Pães", "Pãos"], r: 0 },
+        { q: "Qual é o feminino de 'Padrinho' segundo a Ficha 22?", o: ["Madrinha", "Mãe"], r: 0 },
+        { q: "O nome 'Porto' na Ficha 21 refere-se a uma cidade, logo é:", o: ["Nome Próprio", "Nome Comum"], r: 0 },
+        { q: "O coletivo de 'Livros' (Ficha 20) é:", o: ["Biblioteca", "Pinacoteca"], r: 0 },
+        // --- ORTOGRAFIA E SONS (Fichas 1 a 10) ---
+        { q: "Na Ficha 4, como se escreve a palavra que usamos para temperar a comida?", o: ["Açúcar", "Asúcar"], r: 0 },
+        { q: "Segundo a Ficha 6, qual a escrita correta da ave?", o: ["Águia", "Agia"], r: 0 },
+        { q: "Na Ficha 9, em qual destas palavras o 'x' soa como 'ch'?", o: ["Peixe", "Próximo", "Texto"], r: 0 },
+        { q: "Na Ficha 10, qual é o grupo consonântico correto para 'fruta'?", o: ["fr", "fl", "gr"], r: 0 },
+        { q: "Como escrevemos o som nasal na palavra 'Cinto' (Ficha 7)?", o: ["com 'in'", "com 'im'"], r: 0 },
 
-        // --- 6. SEMÂNTICA E GRAMÁTICA (Antónimos, Sinónimos, Verbos) ---
-        { q: "Antónimo de 'Fácil':", o: ["Difícil", "Rápido"], r: 0 },
-        { q: "Antónimo de 'Quente'?", o: ["Frio", "Arrefece"], r: 0 },
-        { q: "Qual o antónimo de 'Baixo'?", o: ["Alto", "Curto"], r: 0 },
-        { q: "Qual o antónimo de 'Novo'?", o: ["Velho", "Moderno"], r: 0 },
-        { q: "Antónimo de 'Cheio'?", o: ["Vazio", "Grande"], r: 0 },
-        { q: "Qual o antónimo de 'Aparecer'?", o: ["Desaparecer", "Ficar"], r: 0 },
-        { q: "Sinónimo de 'Lindo':", o: ["Bonito", "Feio"], r: 0 },
-        { q: "Sinónimo de 'Morar'?", o: ["Viver/Residir", "Sair"], r: 0 },
-        { q: "Qual o sinónimo de 'Alegre'?", o: ["Contente", "Triste"], r: 0 },
-        { q: "Qual destas palavras é um verbo (ação)?", o: ["Saltar", "Salto"], r: 0 },
-        { q: "A frase 'Eu comi' está no:", o: ["Pretérito (Passado)", "Futuro"], r: 0 },
-        { q: "A frase 'O sol brilha' está no:", o: ["Presente", "Pretérito"], r: 0 },
-        { q: "Na frase 'A Maria comeu a maçã', quem é o sujeito?", o: ["A Maria", "A maçã"], r: 0 },
+        // --- GRAMÁTICA E ACENTUAÇÃO (Fichas 11 a 17) ---
+        { q: "Na Ficha 12, a palavra 'Hipopótamo' tem 5 sílabas. Ela é:", o: ["Polissílaba", "Trissílaba"], r: 0 },
+        { q: "Na Ficha 15, a sílaba tónica de 'Janela' é 'ne'. Ela é:", o: ["Grave", "Aguda"], r: 0 },
+        { q: "Qual o nome do sinal (ç) na Ficha 4?", o: ["Cedilha", "Til"], r: 0 },
+        { q: "Na Ficha 14, qual acento usamos para o som aberto em 'Pé'?", o: ["Acento agudo (´)", "Acento circunflexo (^)"], r: 0 },
+        { q: "Quantas sílabas tem a palavra 'Ar' (Ficha 12)?", o: ["Uma (Monossílaba)", "Duas (Dissílaba)"], r: 0 },
 
-        // --- 7. LEITURA E ESCRITA ---
-        { q: "Qual palavra rima com 'Coração'?", o: ["Mão", "Céu"], r: 0 },
-        { q: "Qual destas palavras rima com 'Janela'?", o: ["Panela", "Porta"], r: 0 },
-        { q: "Aumentativo de 'Casa'?", o: ["Casarão", "Casinha"], r: 0 },
-        { q: "Diminutivo de 'Livro'?", o: ["Livrinho", "Livrote"], r: 0 },
-        { q: "Qual é o diminutivo de 'Cão'?", o: ["Cãozinho", "Cãozão"], r: 0 },
-        { q: "O que é uma 'resposta de construção'?", o: ["Escrever a resposta com as minhas palavras", "Marcar uma cruz"], r: 0 }
+        // --- NOMES, GÉNERO E NÚMERO (Fichas 18 a 22) ---
+        { q: "Na Ficha 21, qual destas palavras é um nome próprio de um país?", o: ["Portugal", "País", "Europa"], r: 0 },
+        { q: "Segundo a Ficha 20, o coletivo de 'Ovelhas' é:", o: ["Rebanho", "Matilha"], r: 0 },
+        { q: "Qual é o feminino de 'Doutor' na Ficha 22?", o: ["Doutora", "Doutriz"], r: 0 },
+        { q: "Como se escreve o plural de 'Nariz' (Ficha 22)?", o: ["Narizes", "Narizs"], r: 0 },
+        { q: "Na Ficha 22, qual o masculino de 'Égua'?", o: ["Cavalo", "Boi"], r: 0 },
+        { q: "Como se forma o plural de 'Jardim' (Ficha 22)?", o: ["Jardins", "Jardims"], r: 0 },
+        { q: "Na frase 'A Maria corre', 'Maria' é um nome:", o: ["Próprio", "Comum"], r: 0 },
+        { q: "Qual é o coletivo de 'Cães' segundo a Ficha 20?", o: ["Matilha", "Alcateia"], r: 0 },
+        { q: "Na Ficha 22, o plural de 'Mão' é:", o: ["Mãos", "Mães"], r: 0 },
+        { q: "A palavra 'Pincel' termina em 'l'. Qual o seu plural?", o: ["Pincéis", "Pincels"], r: 0 },
+        // --- ORTOGRAFIA E SONS (Fichas 1 a 10) ---
+        { q: "Na Ficha 4, qual é a letra que usamos antes de 'e' ou 'i' para o som 'ss'?", o: ["A letra 'c'", "A letra 'q'"], r: 0 },
+        { q: "Segundo a Ficha 6, como se escreve a palavra para apagar o fogo?", o: ["Extintor", "Estintor"], r: 0 },
+        { q: "Na Ficha 8, qual destas palavras tem o som 'lh'?", o: ["Coelho", "Coelo"], r: 0 },
+        { q: "Na Ficha 5, como se escreve corretamente?", o: ["Bochecha", "Boxexa"], r: 0 },
+        { q: "Segundo a Ficha 7, como escrevemos o som nasal em 'Bomba'?", o: ["com 'm'", "com 'n'"], r: 0 },
+
+        // --- GRAMÁTICA: SÍLABAS E ACENTUAÇÃO (Fichas 11 a 17) ---
+        { q: "Na Ficha 12, a palavra 'Jacaré' tem 3 sílabas. Ela é:", o: ["Trissílaba", "Dissílaba"], r: 0 },
+        { q: "Na Ficha 15, a sílaba tónica de 'Cadeira' é 'dei'. Ela é uma palavra:", o: ["Grave", "Aguda"], r: 0 },
+        { q: "Segundo a Ficha 14, qual acento usamos em 'Vovó' (som aberto)?", o: ["Acento agudo (´)", "Acento circunflexo (^)"], r: 0 },
+        { q: "Na Ficha 15, se a sílaba tónica é a última, a palavra é:", o: ["Aguda", "Grave"], r: 0 },
+        { q: "Quantas sílabas tem a palavra 'Comboio' (Ficha 12)?", o: ["3 (Trissílaba)", "4 (Polissílaba)"], r: 0 },
+
+        // --- NOMES E FLEXÃO (Fichas 18 a 22) ---
+        { q: "Na Ficha 21, 'Lisboa' é um nome próprio porque indica:", o: ["Uma cidade específica", "Um objeto comum"], r: 0 },
+        { q: "Segundo a Ficha 20, o coletivo de 'Jogadores' é:", o: ["Equipa", "Turma"], r: 0 },
+        { q: "Qual é o feminino de 'Pai' (Ficha 22)?", o: ["Mãe", "Titio"], r: 0 },
+        { q: "Como se escreve o plural de 'Lençol' (Ficha 22)?", o: ["Lençóis", "Lençols"], r: 0 },
+        { q: "Na Ficha 22, qual o masculino de 'Rainha'?", o: ["Rei", "Príncipe"], r: 0 },
+        { q: "Qual é o plural de 'Botão' (Ficha 22)?", o: ["Botões", "Botãos"], r: 0 },
+        { q: "Na Ficha 20, como chamamos a um conjunto de aviões?", o: ["Esquadrilha", "Frota"], r: 0 },
+        { q: "Na Ficha 22, o masculino de 'Atriz' é:", o: ["Ator", "Artista"], r: 0 },
+        { q: "Como se forma o plural de 'Nuvem' (Ficha 22)?", o: ["Nuvens", "Nuvems"], r: 0 },
+        { q: "Na Ficha 21, qual destas palavras é um nome comum?", o: ["Livro", "Porto", "Espanha"], r: 0 }
     ],
     matematica: [
         // --- 1. NÚMEROS E OPERAÇÕES (Até 399, Dobro, Metade, Pares/Ímpares) ---
@@ -172,57 +164,66 @@ const bancoDados = {
         { q: "Se estiveres de frente para o Norte, o Sul fica:", o: ["Atrás de ti", "À tua direita"], r: 0 }
     ],
     estudoMeio: [
-        // --- 1. SOCIEDADE, FAMÍLIA E GRUPOS SOCIAIS ---
-        { q: "A família e a escola são exemplos de:", o: ["Grupos e comunidades", "Países"], r: 0 },
-        { q: "A família nuclear é normalmente formada por:", o: ["Pais e Filhos", "Primos e Vizinhos"], r: 0 },
-        { q: "Quem faz parte da tua família alargada?", o: ["Tios, primos e avós", "Colegas de turma"], r: 0 },
-        { q: "O teu apelido (nome de família) vem dos teus:", o: ["Pais/Antepassados", "Amigos"], r: 0 },
-        { q: "Um grupo social onde vivemos e partilhamos interesses é a:", o: ["Comunidade", "Floresta"], r: 0 },
-        { q: "Viver em sociedade exige respeitar:", o: ["Regras e leis", "Apenas o que queremos"], r: 0 },
-        { q: "Na escola, todos temos o dever de:", o: ["Respeitar professores e colegas", "Chegar sempre atrasado"], r: 0 },
+        // --- 1. REGRAS, CONVIVÊNCIA E CIDADANIA (Páginas 10, 25, 45, 46) ---
+        { q: "Para vivermos bem com os outros, o que é fundamental?", o: ["Respeitar as diferenças", "Falar sempre mais alto"], r: 0 },
+        { q: "Qual é uma regra importante de boa convivência?", o: ["Saber ouvir os outros", "Empurrar na fila"], r: 0 },
+        { q: "Ser amigo e respeitar os colegas faz parte de:", o: ["Ser um bom cidadão", "Ser um bom atleta"], r: 0 },
+        { q: "Um exemplo de um direito da criança é:", o: ["Ter proteção", "Trabalhar para ganhar dinheiro"], r: 0 },
+        { q: "Um exemplo de um dever da criança na escola é:", o: ["Estudar e prestar atenção", "Poder brincar"], r: 0 },
+        { q: "Qual destas é uma regra de segurança na escola?", o: ["Não correr nos corredores", "Gritar na sala"], r: 0 },
+        { q: "O que significa ser solidário na comunidade?", o: ["Ajudar os outros", "Pensar só em nós"], r: 0 },
+        { q: "As pessoas que vieram de outros países e vivem em Portugal devem ser:", o: ["Respeitadas e acolhidas", "Ignoradas"], r: 0 },
 
-        // --- 2. DIREITOS E DEVERES DA CRIANÇA ---
-        { q: "Toda a criança tem direito a:", o: ["Saúde e Educação", "Trabalhar"], r: 0 },
-        { q: "Qual destes é um direito à identidade?", o: ["Ter um Nome e Nacionalidade", "Ter um Computador"], r: 0 },
-        { q: "Brincar e descansar é um:", o: ["Direito da criança", "Dever da criança"], r: 0 },
-        { q: "Onde estão escritos os direitos das crianças?", o: ["Na Convenção sobre os Direitos da Criança", "No livro de Português"], r: 0 },
-        { q: "Um dever importante da criança em casa é:", o: ["Ajudar em pequenas tarefas", "Ver televisão todo o dia"], r: 0 },
-        { q: "Os direitos das crianças são iguais para todos?", o: ["Sim, em todo o mundo", "Só em Portugal"], r: 0 },
+        // --- 2. O CORPO HUMANO: OSSOS E MÚSCULOS (Páginas 12 a 17) ---
+        { q: "Quais são as três partes principais em que se divide o corpo humano?", o: ["Cabeça, tronco e membros", "Mãos, pés e joelhos"], r: 0 },
+        { q: "Quais são as partes do corpo que dão suporte e nos permitem mexer?", o: ["Os ossos e os músculos", "A pele e o cabelo"], r: 0 },
+        { q: "Como se chama o conjunto de todos os ossos do nosso corpo?", o: ["Esqueleto", "Músculo"], r: 0 },
+        { q: "Como se chama o osso que protege o nosso cérebro?", o: ["Crânio", "Costela"], r: 0 },
+        { q: "Os ossos das costas que nos mantêm direitos formam a:", o: ["Coluna vertebral", "Bacia"], r: 0 },
+        { q: "Os músculos servem para nos ajudar a:", o: ["Fazer movimentos", "Pensar"], r: 0 },
+        { q: "Como se chama o lugar onde os ossos se unem e permitem dobrar o corpo?", o: ["Articulações", "Músculos"], r: 0 },
+        { q: "Quantos ossos aproximados tem um adulto? (Escreve o número: 206)", tipo: "input", r: 206, materia: "estudoMeio" },
 
-        // --- 3. PASSADO PESSOAL, FAMILIAR E HISTÓRIA ---
-        { q: "O esquema que mostra os nossos antepassados chama-se:", o: ["Árvore Genealógica", "Mapa de Portugal"], r: 0 },
-        { q: "Os teus avós paternos são os pais do teu:", o: ["Pai", "Tio"], r: 0 },
-        { q: "O teu passado pessoal começou quando:", o: ["Nasceste", "Entraste na escola"], r: 0 },
-        { q: "O que celebramos no dia 25 de Abril em Portugal?", o: ["A Liberdade e a Democracia", "A Independência"], r: 0 },
-        { q: "Povos como os Romanos e os Árabes influenciaram Portugal?", o: ["Sim, na língua e monumentos", "Não, nunca cá estiveram"], r: 0 },
-        { q: "Onde podemos encontrar objetos do passado para estudar?", o: ["Nos Museus", "No Supermercado"], r: 0 },
+        // --- 3. ÓRGÃOS VITAIS E FUNÇÕES (Páginas 16 a 19) ---
+        { q: "Qual é o órgão responsável por bombear o sangue para todo o corpo?", o: ["Coração", "Pulmões"], r: 0 },
+        { q: "Onde se localiza o coração?", o: ["No tórax, entre os pulmões", "Na barriga"], r: 0 },
+        { q: "Os pulmões são os órgãos principais de qual função?", o: ["Respiração", "Digestão"], r: 0 },
+        { q: "O que acontece ao peito quando inspiramos (entrada de ar)?", o: ["Aumenta de tamanho", "Diminui de tamanho"], r: 0 },
+        { q: "Qual o órgão que nos ajuda a digerir os alimentos que comemos?", o: ["Estômago", "Coração"], r: 0 },
+        { q: "Qual é o órgão que controla todo o nosso corpo e pensamentos?", o: ["Cérebro", "Coração"], r: 0 },
+        { q: "Onde se localiza o cérebro?", o: ["Na cabeça", "No abdómen"], r: 0 },
+        { q: "Os ossos que protegem o coração e os pulmões chamam-se:", o: ["Costelas", "Fémur"], r: 0 },
 
-        // --- 4. PORTUGAL: LOCALIZAÇÃO E GEOGRAFIA ---
-        { q: "Portugal fica situado no continente:", o: ["Europeu", "Africano"], r: 0 },
-        { q: "Portugal faz parte da Península:", o: ["Ibérica", "Itálica"], r: 0 },
-        { q: "Qual o único país que faz fronteira terrestre com Portugal?", o: ["Espanha", "França"], r: 0 },
-        { q: "Portugal é banhado por qual oceano?", o: ["Oceano Atlântico", "Oceano Pacífico"], r: 0 },
-        { q: "As Regiões Autónomas de Portugal são os arquipélagos da:", o: ["Madeira e Açores", "Canárias"], r: 0 },
-        { q: "Qual é a capital de Portugal?", o: ["Lisboa", "Porto"], r: 0 },
-        { q: "Qual o rio que nasce em Portugal e é o maior de todos os nacionais?", o: ["Mondego", "Tejo"], r: 0 },
-        { q: "Portugal divide-se em distritos, concelhos e:", o: ["Freguesias", "Bairros"], r: 0 },
+        // --- 4. SAÚDE, HIGIENE E BEM-ESTAR (Páginas 20 a 24) ---
+        { q: "O que serve para nos proteger de doenças graves?", o: ["A vacinação", "Ver televisão"], r: 0 },
+        { q: "Devemos tomar medicamentos apenas quando receitados pelo:", o: ["Médico", "Amigo"], r: 0 },
+        { q: "O que deves fazer se encontrares um medicamento em casa?", o: ["Não mexer e avisar um adulto", "Provar para ver o sabor"], r: 0 },
+        { q: "Para termos uma vida saudável, o que devemos evitar?", o: ["Comer muitos doces", "Dormir bem"], r: 0 },
+        { q: "Ter uma alimentação equilibrada faz parte do nosso:", o: ["Bem-estar", "Dever de casa"], r: 0 },
+        { q: "Para ter dentes saudáveis, devo escová-los:", o: ["Depois das refeições", "Uma vez por semana"], r: 0 },
+        { q: "O que deves fazer antes de comer para manter a higiene?", o: ["Lavar as mãos", "Pentear o cabelo"], r: 0 },
+        { q: "A postura correta ao sentar na cadeira ajuda a proteger a:", o: ["Coluna", "Visão"], r: 0 },
+        { q: "Para proteger os ouvidos, devemos evitar:", o: ["Sons muito altos", "Usar chapéu"], r: 0 },
 
-        // --- 5. SÍMBOLOS, INSTITUIÇÕES E CULTURA ---
-        { q: "Quais as cores da Bandeira Nacional de Portugal?", o: ["Verde e Vermelho", "Azul e Branco"], r: 0 },
-        { q: "O Hino Nacional de Portugal chama-se:", o: ["A Portuguesa", "Fado"], r: 0 },
-        { q: "Qual é a moeda que usamos em Portugal?", o: ["Euro", "Escudo"], r: 0 },
-        { q: "Onde reside o Presidente da República?", o: ["Palácio de Belém", "Castelo de S. Jorge"], r: 0 },
-        { q: "Quem cuida dos jardins e lixo da nossa localidade?", o: ["A Câmara Municipal / Junta de Freguesia", "O Governo"], r: 0 },
-        { q: "O dia de Portugal, de Camões e das Comunidades é:", o: ["10 de Junho", "1 de Dezembro"], r: 0 },
-        { q: "O Fado é um estilo de música tradicional de:", o: ["Portugal", "Espanha"], r: 0 },
+        // --- 5. PASSADO PESSOAL E FAMÍLIA (Páginas 30 a 36) ---
+        { q: "Como se chama o documento que prova a nossa identidade e cidadania?", o: ["Cartão de Cidadão", "Livro de Matemática"], r: 0 },
+        { q: "Os teus avós maternos são os pais da tua:", o: ["Mãe", "Pai"], r: 0 },
+        { q: "Os filhos dos teus tios são teus:", o: ["Primos", "Irmãos"], r: 0 },
 
-        // --- 6. NATUREZA, SEGURANÇA E AMBIENTE ---
-        { q: "Para atravessar a estrada com segurança, devemos usar:", o: ["A Passadeira", "Qualquer sítio"], r: 0 },
-        { q: "O sinal de STOP obriga o condutor a:", o: ["Parar obrigatoriamente", "Andar mais depressa"], r: 0 },
-        { q: "As plantas precisam de água, luz e o quê para viver?", o: ["Sais minerais (terra)", "Açúcar"], r: 0 },
-        { q: "No ecoponto Verde, devemos colocar:", o: ["Vidro", "Papel"], r: 0 },
-        { q: "No ecoponto Amarelo, devemos colocar:", o: ["Plástico e Metal", "Vidro"], r: 0 },
-        { q: "No ecoponto Azul, devemos colocar:", o: ["Papel e Cartão", "Plástico"], r: 0 },
-        { q: "Qual destes é um meio de comunicação em massa?", o: ["Televisão", "Carta"], r: 0 }
+        // --- 6. PORTUGAL E COMUNIDADE (Páginas 37 a 42) ---
+        { q: "Em que país vives?", o: ["Portugal", "Espanha"], r: 0 },
+        { q: "Portugal situa-se no extremo de qual continente?", o: ["Europeu", "Americano"], r: 0 },
+        { q: "Portugal situa-se no extremo de qual continente?", o: ["Europeu", "Americano"], r: 0 },
+        { q: "Qual é o símbolo nacional que representa Portugal?", o: ["Bandeira Nacional", "Um brinquedo"], r: 0 },
+        { q: "O conjunto de pessoas que partilha a mesma língua e história forma uma:", o: ["Nação / Povo", "Turma"], r: 0 },
+        { q: "O conjunto de pessoas que vivem e trabalham no mesmo lugar chama-se:", o: ["Comunidade", "Família nuclear"], r: 0 },
+        { q: "Além da família, qual é outro grupo importante a que pertences?", o: ["Turma / Escola", "Grupo de desconhecidos"], r: 0 },
+        { q: "As pessoas que vivem num prédio ou na mesma rua formam uma:", o: ["Vizinhança", "Família nuclear"], r: 0 },
+        { q: "Os vizinhos são pessoas que vivem:", o: ["Perto da nossa casa", "Noutro país"], r: 0 },
+        { q: "Na escola, as decisões que interessam a todos devem ser:", o: ["Tomadas em conjunto / Grupo", "Tomadas por uma só pessoa"], r: 0 },
+        { q: "Quem é o responsável por orientar a nossa turma na escola?", o: ["Professor(a)", "Presidente"], r: 0 },
+
+        // --- 7. SERES VIVOS (Páginas Gerais de Revisão) ---
+        { q: "As plantas e os animais são seres vivos porque:", o: ["Nascem, crescem e morrem", "Não precisam de comer"], r: 0 }
     ]
 };
