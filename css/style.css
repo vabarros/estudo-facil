@@ -13,7 +13,7 @@ body {
     padding: 20px;
     margin: 0;
     /* Impede o "pull-to-refresh" acidental em alguns browsers mobile */
-    overscroll-behavior-y: contain; 
+    overscroll-behavior-y: contain;
 }
 
 /* --- MENU INICIAL --- */
@@ -31,18 +31,29 @@ body {
     border-radius: 15px;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
     -webkit-tap-highlight-color: transparent;
 }
 
-.card:hover { 
-    transform: translateY(-5px); 
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.pt { background: var(--cor-portugues); border: 2px solid #e1b12c; }
-.mat { background: var(--cor-matematica); border: 2px solid #a4b0be; }
-.est { background: var(--cor-estudo); border: 2px solid #78e08f; }
+.pt {
+    background: var(--cor-portugues);
+    border: 2px solid #e1b12c;
+}
+
+.mat {
+    background: var(--cor-matematica);
+    border: 2px solid #a4b0be;
+}
+
+.est {
+    background: var(--cor-estudo);
+    border: 2px solid #78e08f;
+}
 
 /* --- BOTÕES DE MISSÃO --- */
 .missao {
@@ -56,7 +67,7 @@ body {
     display: inline-block;
     margin-bottom: 20px;
     border: none;
-    box-shadow: 0 4px 10px rgba(255,118,117,0.3);
+    box-shadow: 0 4px 10px rgba(255, 118, 117, 0.3);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -68,7 +79,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     text-align: left;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* --- ÁREA DE PERGUNTAS --- */
@@ -78,7 +89,7 @@ body {
     border-radius: 15px;
     margin: 20px auto;
     max-width: 500px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .texto-pergunta {
@@ -102,7 +113,7 @@ body {
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
     /* Remove o brilho azul nativo do Android/iOS */
-    -webkit-tap-highlight-color: transparent; 
+    -webkit-tap-highlight-color: transparent;
     /* Remove o contorno de seleção */
     outline: none !important;
 }
@@ -116,8 +127,8 @@ body {
 }
 
 /* REMOÇÃO TOTAL DE FOCO PERSISTENTE EM MOBILE */
-.btn-opcao:focus, 
-.btn-opcao:active, 
+.btn-opcao:focus,
+.btn-opcao:active,
 .btn-opcao:focus-visible {
     outline: none !important;
     box-shadow: none !important;
@@ -137,29 +148,66 @@ body {
     font-size: 1.2rem;
     z-index: 1000;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     max-width: 80%;
     cursor: pointer;
 }
 
-.feedback-sucesso { 
-    background-color: #2ecc71; 
-    animation: fadeInOut 3s forwards; 
+.feedback-sucesso {
+    background-color: #2ecc71;
+    animation: fadeInOut 3s forwards;
 }
 
-.feedback-erro { 
-    background-color: #e74c3c; 
+.feedback-erro {
+    background-color: #e74c3c;
 }
 
 @keyframes fadeInOut {
-    0% { opacity: 0; top: -50px; }
-    15% { opacity: 1; top: 20px; }
-    85% { opacity: 1; top: 20px; }
-    100% { opacity: 0; top: -50px; }
+    0% {
+        opacity: 0;
+        top: -50px;
+    }
+
+    15% {
+        opacity: 1;
+        top: 20px;
+    }
+
+    85% {
+        opacity: 1;
+        top: 20px;
+    }
+
+    100% {
+        opacity: 0;
+        top: -50px;
+    }
 }
 
 /* --- AJUSTE PARA ECRÃS PEQUENOS --- */
 @media (max-width: 600px) {
-    .card { width: 140px; padding: 15px; }
-    .texto-pergunta { font-size: 1.2rem; }
+    .card {
+        width: 140px;
+        padding: 15px;
+    }
+
+    .texto-pergunta {
+        font-size: 1.2rem;
+    }
+}
+
+.input-resposta {
+    font-size: 24px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    border: 3px solid #3498db;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
