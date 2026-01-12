@@ -169,8 +169,8 @@ const bancoDados = {
         { q: "A metade de 200 é:", o: ["100", "150"], r: 0 },
         { q: "A metade de 100 é:", o: ["50", "25"], r: 0 },
         { q: "Qual é a metade de 20?", o: ["10", "5"], r: 0 },
-        { q: "Como se escreve o número ordinal 5.º?", o: ["Quinto", "Quarto"], r: 0 },
-        { q: "Como se escreve o número ordinal 10.º?", o: ["Décimo", "Nono"], r: 0 },
+        { q: "Como se escreve o número ordinal 5º?", o: ["Quinto", "Quarto"], r: 0 },
+        { q: "Como se escreve o número ordinal 10º?", o: ["Décimo", "Nono"], r: 0 },
         // --- 2. DECOMPOSIÇÃO E VALOR POSICIONAL ---
         { q: "3 Centenas + 4 Dezenas + 2 Unidades é:", o: ["342", "243"], r: 0 },
         { q: "3 Centenas + 9 Unidades é o número:", o: ["309", "390"], r: 0 },
