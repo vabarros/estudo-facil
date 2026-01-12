@@ -171,7 +171,7 @@ const bancoDados = {
         { q: "Qual o objeto que usamos para saber onde fica o Norte?", o: ["Bússola", "Termómetro"], r: 0 },
         { q: "Se estiveres de frente para o Norte, o Sul fica:", o: ["Atrás de ti", "À tua direita"], r: 0 }
     ],
-    estudo_meio: [
+    estudoMeio: [
         // --- 1. SOCIEDADE, FAMÍLIA E GRUPOS SOCIAIS ---
         { q: "A família e a escola são exemplos de:", o: ["Grupos e comunidades", "Países"], r: 0 },
         { q: "A família nuclear é normalmente formada por:", o: ["Pais e Filhos", "Primos e Vizinhos"], r: 0 },
