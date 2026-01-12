@@ -10,9 +10,7 @@ const bancoDados = {
         // --- GRAMÁTICA: SÍLABAS E ACENTUAÇÃO (Fichas 11 a 17) ---
         { q: "Classifica a palavra 'Livro' quanto ao número de sílabas:", o: ["Monossílaba", "Dissílaba", "Trissílaba"], r: 1 }, // Ficha 12
         { q: "Na palavra 'Caneta', a sílaba tónica é:", o: ["Ca", "ne", "ta"], r: 1 }, // Ficha 15
-        { q: "Uma palavra que tem a sílaba tónica na penúltima sílaba é uma palavra:", o: ["Grave", "Aguda"], r: 0 }, // Ficha 15
         { q: "Qual destas palavras precisa de um acento agudo (´)?", o: ["Agua", "Mesa", "Cadeira"], r: 0 }, // Ficha 14
-        { q: "A palavra 'Papel' é uma palavra:", o: ["Aguda (sílaba tónica na última)", "Grave (sílaba tónica na penúltima)"], r: 0 }, // Ficha 15
 
         // --- NOMES E FLEXÃO (Fichas 18 a 22) ---
         { q: "Identifica o nome próprio na frase: 'O gato do Rui é bonito.'", o: ["gato", "Rui", "bonito"], r: 1 }, // Ficha 21
@@ -27,9 +25,7 @@ const bancoDados = {
 
         // --- GRAMÁTICA: SÍLABAS E ACENTUAÇÃO (Fichas 11 a 17) ---
         { q: "Na Ficha 12, a palavra 'Sol' é classificada como:", o: ["Monossílaba", "Dissílaba"], r: 0 },
-        { q: "Na Ficha 15, a sílaba tónica de 'Lápis' é 'Lá'. Ela é uma palavra:", o: ["Grave", "Aguda"], r: 0 },
         { q: "Segundo a Ficha 14, qual destas palavras tem acento circunflexo?", o: ["Pêssego", "Maçã"], r: 0 },
-        { q: "Na Ficha 15, a palavra 'Papel' tem a última sílaba forte. Ela é:", o: ["Aguda", "Grave"], r: 0 },
         { q: "Na Ficha 11, o que significa assinalar com uma cruz?", o: ["Escolha múltipla", "Construção de frase"], r: 0 },
 
         // --- NOMES E FLEXÃO (Fichas 18 a 22) ---
@@ -51,7 +47,6 @@ const bancoDados = {
 
         // --- GRAMÁTICA E ACENTUAÇÃO (Fichas 11 a 17) ---
         { q: "Na Ficha 12, a palavra 'Hipopótamo' tem 5 sílabas. Ela é:", o: ["Polissílaba", "Trissílaba"], r: 0 },
-        { q: "Na Ficha 15, a sílaba tónica de 'Janela' é 'ne'. Ela é:", o: ["Grave", "Aguda"], r: 0 },
         { q: "Qual o nome do sinal (ç) na Ficha 4?", o: ["Cedilha", "Til"], r: 0 },
         { q: "Na Ficha 14, qual acento usamos para o som aberto em 'Pé'?", o: ["Acento agudo (´)", "Acento circunflexo (^)"], r: 0 },
         { q: "Quantas sílabas tem a palavra 'Ar' (Ficha 12)?", o: ["Uma (Monossílaba)", "Duas (Dissílaba)"], r: 0 },
@@ -76,9 +71,7 @@ const bancoDados = {
 
         // --- GRAMÁTICA: SÍLABAS E ACENTUAÇÃO (Fichas 11 a 17) ---
         { q: "Na Ficha 12, a palavra 'Jacaré' tem 3 sílabas. Ela é:", o: ["Trissílaba", "Dissílaba"], r: 0 },
-        { q: "Na Ficha 15, a sílaba tónica de 'Cadeira' é 'dei'. Ela é uma palavra:", o: ["Grave", "Aguda"], r: 0 },
         { q: "Segundo a Ficha 14, qual acento usamos em 'Vovó' (som aberto)?", o: ["Acento agudo (´)", "Acento circunflexo (^)"], r: 0 },
-        { q: "Na Ficha 15, se a sílaba tónica é a última, a palavra é:", o: ["Aguda", "Grave"], r: 0 },
         { q: "Quantas sílabas tem a palavra 'Comboio' (Ficha 12)?", o: ["3 (Trissílaba)", "4 (Polissílaba)"], r: 0 },
 
         // --- NOMES E FLEXÃO (Fichas 18 a 22) ---
@@ -91,7 +84,20 @@ const bancoDados = {
         { q: "Na Ficha 20, como chamamos a um conjunto de aviões?", o: ["Esquadrilha", "Frota"], r: 0 },
         { q: "Na Ficha 22, o masculino de 'Atriz' é:", o: ["Ator", "Artista"], r: 0 },
         { q: "Como se forma o plural de 'Nuvem' (Ficha 22)?", o: ["Nuvens", "Nuvems"], r: 0 },
-        { q: "Na Ficha 21, qual destas palavras é um nome comum?", o: ["Livro", "Porto", "Espanha"], r: 0 }
+        { q: "Na Ficha 21, qual destas palavras é um nome comum?", o: ["Livro", "Porto", "Espanha"], r: 0 },
+        // --- SÍLABA TÓNICA E ÁTONA (Ficha 15) ---
+        { q: "Na palavra 'Menino', a sílaba tónica é 'ni'. Como se chamam as outras sílabas (me-no)?", o: ["Átonas", "Tónicas"], r: 0 },
+        { q: "Qual é a sílaba tónica da palavra 'Rápido'?", o: ["Rá", "pi", "do"], r: 0 },
+        { q: "Na palavra 'Estrela', qual é a sílaba que pronunciamos com mais força (tónica)?", o: ["Es", "tre", "la"], r: 1 },
+        { q: "Quantas sílabas átonas tem a palavra 'Café'?", o: ["Uma ('ca')", "Duas"], r: 0 },
+        { q: "Identifica a sílaba tónica da palavra 'Escola':", o: ["Es", "co", "la"], r: 1 },
+        { q: "Qual destas palavras tem a sílaba tónica na última sílaba?", o: ["Anzol", "Livro", "Lápis"], r: 0 },
+        { q: "Na palavra 'Sábado', a sílaba tónica é 'Sá'. As sílabas 'ba' e 'do' são:", o: ["Átonas", "Tónicas"], r: 0 },
+        { q: "Qual é a sílaba tónica de 'Coração'?", o: ["Co", "ra", "ção"], r: 2 },
+        { q: "Na palavra 'Janela', a sílaba tónica é:", o: ["Ja", "ne", "la"], r: 1 },
+        { q: "As sílabas de uma palavra que não são tónicas chamam-se sempre:", o: ["Átonas", "Fracas"], r: 0 },
+        { q: "Em 'Porto', a sílaba tónica é 'Por'. Ela é a:", o: ["Penúltima sílaba", "Última sílaba"], r: 0 },
+        { q: "Qual é a sílaba tónica de 'Jacaré'?", o: ["Ja", "ca", "ré"], r: 2 },
     ],
     matematica: [
         // --- 1. NÚMEROS E OPERAÇÕES (Até 399, Dobro, Metade, Pares/Ímpares) ---
