@@ -3,41 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treino de Matemática</title>
+    <title>Matemática</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body style="background: #CFE2F3;"> <h1>🔢 Missão de Matemática</h1>
-    <p>Números até 399, Poliedros e Tabelas</p>
+<body style="background: #CFE2F3;">
 
-    <div id="zona-pergunta">
+    <h1>🔢 Missão de Matemática</h1>
+
+    <div id="menu-treino">
         <div class="card-pergunta">
             <p>Vamos treinar 10 questões de Matemática?</p>
-            <button class="missao" onclick="treinar('matematica')">Começar Treino</button>
+            <button class="missao" onclick="iniciarTreinoLocal('matematica')">Começar Treino</button>
+        </div>
+
+        <p>Escolha a tabuada que deseja treinar:</p>
+        <div class="card-pergunta" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada2')">2</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada3')">3</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada4')">4</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada5')">5</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada6')">6</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada7')">7</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada8')">8</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada9')">9</button>
+            <button class="missao" onclick="iniciarTreinoLocal('tabuada10')">10</button>
         </div>
     </div>
 
-    <br>
-    <p>Escolha a tabuada que deseja treinar:</p>
-
-    <div id="zona-pergunta">
-        <div class="card-pergunta">
-            <p>Clique na tabuada desejada</p>
-            <button class="missao" onclick="treinar('tabuada2')">2</button>
-            <button class="missao" onclick="treinar('tabuada3')">3</button>
-            <button class="missao" onclick="treinar('tabuada4')">4</button>
-            <button class="missao" onclick="treinar('tabuada5')">5</button>
-            <button class="missao" onclick="treinar('tabuada6')">6</button>
-            <button class="missao" onclick="treinar('tabuada7')">7</button>
-            <button class="missao" onclick="treinar('tabuada8')">8</button>
-            <button class="missao" onclick="treinar('tabuada9')">9</button>
-            <button class="missao" onclick="treinar('tabuada10')">10</button>
-        </div>
-    </div>
+    <div id="zona-pergunta" style="display:none;"></div>
 
     <br>
-    <a href="../index.html" style="text-decoration: none; color: #2c3e50; font-weight: bold;">⬅ Voltar ao Menu</a>
+    <a href="../index.html" id="link-voltar" style="text-decoration: none; color: #2c3e50; font-weight: bold;">
+        ⬅ Voltar ao Menu
+    </a>
 
     <script src="../js/exercicios.js"></script>
     <script src="../js/progresso.js"></script>
+
+    <script>
+        // Função exclusiva desta página para controlar a navegação
+        function iniciarTreinoLocal(materia) {
+            document.getElementById('menu-treino').style.display = 'none';
+            document.getElementById('zona-pergunta').style.display = 'block';
+            
+            const btnVoltar = document.getElementById('link-voltar');
+            if (btnVoltar) {
+                btnVoltar.href = "#"; 
+                btnVoltar.onclick = function(e) { 
+                    e.preventDefault();
+                    location.reload(); 
+                };
+                btnVoltar.innerHTML = "⬅ Voltar para Matemática";
+            }
+            treinar(materia);
+        }
+    </script>
 </body>
 </html>

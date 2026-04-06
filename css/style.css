@@ -1,226 +1,127 @@
-/* --- CONFIGURAÇÕES GLOBAIS --- */
 :root {
     --cor-portugues: #FFD966;
     --cor-matematica: #CFE2F3;
     --cor-estudo: #D9EAD3;
     --cor-missao: #ff7675;
+    --cor-sucesso: #2ecc71;
+    --cor-erro: #e74c3c;
 }
 
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f0f4f8;
     text-align: center;
     padding: 20px;
     margin: 0;
-    /* Impede o "pull-to-refresh" acidental em alguns browsers mobile */
-    overscroll-behavior-y: contain;
 }
 
-/* --- MENU INICIAL --- */
-.menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
-}
+/* --- CARDS E MENU --- */
+.menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
 
 .card {
-    width: 180px;
-    padding: 20px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    -webkit-tap-highlight-color: transparent;
+    width: 180px; padding: 20px; border-radius: 15px; cursor: pointer;
+    font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: 0.2s; border: none;
 }
+.card:active { transform: scale(0.95); }
 
-.card:hover {
-    transform: translateY(-5px);
-}
+.pt { background: var(--cor-portugues); border-bottom: 4px solid #e1b12c; }
+.mat { background: var(--cor-matematica); border-bottom: 4px solid #a4b0be; }
+.est { background: var(--cor-estudo); border-bottom: 4px solid #78e08f; }
 
-.pt {
-    background: var(--cor-portugues);
-    border: 2px solid #e1b12c;
-}
-
-.mat {
-    background: var(--cor-matematica);
-    border: 2px solid #a4b0be;
-}
-
-.est {
-    background: var(--cor-estudo);
-    border: 2px solid #78e08f;
-}
-
-/* --- BOTÕES DE MISSÃO --- */
+/* --- BOTÕES --- */
 .missao {
-    background: var(--cor-missao);
-    color: white;
-    padding: 20px 40px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: inline-block;
-    margin-bottom: 20px;
-    border: none;
-    box-shadow: 0 4px 10px rgba(255, 118, 117, 0.3);
-    -webkit-tap-highlight-color: transparent;
+    background: var(--cor-missao); color: white; padding: 15px 30px;
+    border-radius: 50px; font-size: 1.1rem; font-weight: bold;
+    cursor: pointer; border: none; box-shadow: 0 4px 10px rgba(255,118,117,0.3);
+    margin: 5px;
 }
 
-/* --- PANORAMA / STATUS --- */
-#panorama {
-    background: white;
-    max-width: 500px;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* --- ÁREA DE PERGUNTAS --- */
+/* --- ÁREA DE JOGO --- */
 .card-pergunta {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin: 20px auto;
-    max-width: 500px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: white; padding: 30px 20px; border-radius: 20px;
+    margin: 20px auto; max-width: 500px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.texto-pergunta {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
-
-.opcoes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* --- BOTÕES DE OPÇÃO (CORREÇÃO DE FOCO) --- */
-.btn-opcao {
-    padding: 15px;
-    font-size: 1.1rem;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    background: #f9f9f9;
-    cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
-    /* Remove o brilho azul nativo do Android/iOS */
-    -webkit-tap-highlight-color: transparent;
-    /* Remove o contorno de seleção */
-    outline: none !important;
-}
-
-/* Efeito apenas para computadores (com rato) */
-@media (hover: hover) {
-    .btn-opcao:hover {
-        background: #e1f5fe;
-        border-color: #0097a7;
-    }
-}
-
-/* REMOÇÃO TOTAL DE FOCO PERSISTENTE EM MOBILE */
-.btn-opcao:focus,
-.btn-opcao:active,
-.btn-opcao:focus-visible {
-    outline: none !important;
-    box-shadow: none !important;
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* --- FEEDBACK TOASTS --- */
-.feedback-toast {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px 30px;
-    border-radius: 15px;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    z-index: 1000;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    max-width: 80%;
-    cursor: pointer;
-}
-
-.feedback-sucesso {
-    background-color: #2ecc71;
-    animation: fadeInOut 3s forwards;
-}
-
-.feedback-erro {
-    background-color: #e74c3c;
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        top: -50px;
-    }
-
-    15% {
-        opacity: 1;
-        top: 20px;
-    }
-
-    85% {
-        opacity: 1;
-        top: 20px;
-    }
-
-    100% {
-        opacity: 0;
-        top: -50px;
-    }
-}
-
-/* --- AJUSTE PARA ECRÃS PEQUENOS --- */
-@media (max-width: 600px) {
-    .card {
-        width: 140px;
-        padding: 15px;
-    }
-
-    .texto-pergunta {
-        font-size: 1.2rem;
-    }
-}
+.input-container { display: flex; flex-direction: column; align-items: center; }
 
 .input-resposta {
-    font-size: 24px;
-    padding: 10px;
-    width: 100px;
-    text-align: center;
-    border: 3px solid #3498db;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    font-size: 2rem; padding: 10px; width: 120px; text-align: center;
+    border: 3px solid #3498db; border-radius: 12px;
+    margin-bottom: 25px; /* DISTÂNCIA DO BOTÃO */
 }
 
-.input-container {
+/* Remove setas do input number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; appearance: textfield; }
+
+/* --- FEEDBACK --- */
+.feedback-toast {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    padding: 15px 25px; border-radius: 15px; color: white; font-weight: bold;
+    z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.feedback-sucesso { background: var(--cor-sucesso); }
+.feedback-erro { background: var(--cor-erro); }
+
+/* Container das opções de múltipla escolha */
+.opcoes-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Coloca um ao lado do outro */
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Garante que quebre a linha em telas pequenas */
+}
+/* Container que centraliza e espaça qualquer grupo de opções */
+.opcoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Espaço entre botões */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* O botão de opção "bonitão" para todas as matérias */
+.btn-opcao {
+    background-color: #ffffff;
+    border: 2px solid #3498db;
+    border-radius: 15px;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    box-shadow: 0 4px 0 #2980b9; /* Efeito 3D */
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-/* Esconde as setas para Chrome, Safari, Edge e Opera */
-.input-tabuada::-webkit-outer-spin-button,
-.input-tabuada::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/* Efeito ao passar o mouse (desktop) */
+@media (hover: hover) {
+    .btn-opcao:hover {
+        background-color: #f1f8ff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 0 #2980b9;
+    }
 }
 
-/* Esconde as setas para Firefox */
-.input-tabuada {
-  -moz-appearance: textfield;
-  text-align: center; /* Opcional: centraliza o número para ficar bonito */
+/* Efeito de clique (afunda o botão) */
+.btn-opcao:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #2980b9;
 }
+
+/* Cor específica se for Português (opcional, para manter o tema) */
+.tema-portugues .btn-opcao {
+    border-color: #e1b12c;
+    box-shadow: 0 4px 0 #c29921;
+}
+.tema-portugues .btn-opcao:active { box-shadow: 0 0 0 #c29921; }
