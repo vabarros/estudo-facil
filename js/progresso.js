@@ -1,7 +1,17 @@
 let progresso = JSON.parse(localStorage.getItem('estudoApp')) || {
     portugues: { acertos: 0, total: 0 },
     matematica: { acertos: 0, total: 0 },
-    estudoMeio: { acertos: 0, total: 0 }
+    estudoMeio: { acertos: 0, total: 0 },
+    // Inicializa as tabuadas de 2 a 10 se não existirem
+    tabuada2: { acertos: 0, total: 0 },
+    tabuada3: { acertos: 0, total: 0 },
+    tabuada4: { acertos: 0, total: 0 },
+    tabuada5: { acertos: 0, total: 0 },
+    tabuada6: { acertos: 0, total: 0 },
+    tabuada7: { acertos: 0, total: 0 },
+    tabuada8: { acertos: 0, total: 0 },
+    tabuada9: { acertos: 0, total: 0 },
+    tabuada10: { acertos: 0, total: 0 }
 };
 
 let perguntasAtuais = [];
@@ -23,22 +33,32 @@ function renderizarQuestao() {
 
     const item = perguntasAtuais[indiceAtual];
     
-    let html = `<div class="card-pergunta">
+    // Identifica o tema para o CSS
+    const classeTema = item.materia === 'portugues' ? 'tema-portugues' : '';
+
+    let html = `<div class="card-pergunta ${classeTema}">
         <span class="badge">${item.materia.toUpperCase()}</span>
         <h3>Pergunta ${indiceAtual + 1} de ${perguntasAtuais.length}</h3>
         <p class="texto-pergunta">${item.q}</p>`;
 
     if (item.tipo === "input") {
-        // Renderiza campo de texto para contas
+        // Renderiza campo de texto com bloqueio de sinais (+, -, .)
         html += `
             <div class="input-container">
-                <input type="number" id="resposta-user" class="input-resposta" placeholder="?" autofocus>
+                <input type="number" 
+                       id="resposta-user" 
+                       class="input-resposta" 
+                       placeholder="?" 
+                       autofocus
+                       oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                       onkeypress="if(event.key === 'Enter') verificarRespostaInput()">
+                
                 <button class="missao" onclick="verificarRespostaInput()">Verificar Conta</button>
             </div>
         `;
     } else {
-        // Renderiza botões normais
-        html += `<div class="opcoes">`;
+        // Renderiza botões com a nova classe de espaçamento
+        html += `<div class="opcoes-container">`;
         item.o.forEach((op, i) => {
             html += `<button class="btn-opcao" onclick="verificarResposta(${i})">${op}</button>`;
         });
@@ -48,103 +68,137 @@ function renderizarQuestao() {
     html += `</div>`;
     zona.innerHTML = html;
 
-    // Focar automaticamente no campo se for input
+    // Focar automaticamente no campo
     if(item.tipo === "input") {
-        setTimeout(() => document.getElementById('resposta-user').focus(), 100);
+        setTimeout(() => {
+            const el = document.getElementById('resposta-user');
+            if(el) el.focus();
+        }, 100);
     }
 }
+/* --- FUNÇÕES DE VERIFICAÇÃO --- */
 
-function verificarRespostaInput() {
-    const input = document.getElementById('resposta-user');
-    const valorUser = parseInt(input.value);
-    const item = perguntasAtuais[indiceAtual];
-
-    if (isNaN(valorUser)) {
-        alert("Por favor, escreve um número!");
-        return;
-    }
-
-    const acertou = valorUser === item.r;
-
-    if (acertou) {
-        progresso[item.materia].acertos++;
-        mostrarFeedback("✅ EXCELENTE! Conta certa!", "sucesso");
-        setTimeout(proximaQuestao, 2000);
-    } else {
-        mostrarFeedback(
-            `❌ Quase! <br> O resultado era <strong>${item.r}</strong>. <br><br> 
-            <em>Clica para continuar...</em>`, 
-            "erro", 
-            true
-        );
-    }
-    
-    progresso[item.materia].total++;
-    localStorage.setItem('estudoApp', JSON.stringify(progresso));
-}
-
+// 1. Para Português e Estudo do Meio (Botões de Opção)
 function verificarResposta(escolha) {
     const item = perguntasAtuais[indiceAtual];
     const acertou = escolha === item.r;
     
-    // Bloquear cliques extras nos botões de opção
-    const botoes = document.querySelectorAll('.btn-opcao');
-    botoes.forEach(b => b.disabled = true);
+    // Bloqueia cliques repetidos nos botões
+    document.querySelectorAll('.btn-opcao').forEach(b => b.disabled = true);
+
+    // Usa a função mestre para salvar
+    registrarResultado(acertou, item.materia);
 
     if (acertou) {
-        progresso[item.materia].acertos++;
-        mostrarFeedback("✅ CORRETO! Parabéns!", "sucesso");
-        
-        // Se estiver certa, dura 3 segundos e pula automaticamente
-        setTimeout(() => {
-            proximaQuestao();
-        }, 2000);
-
+        mostrarFeedback("✅ CORRETO!", "sucesso");
+        setTimeout(proximaQuestao, 2000);
     } else {
+        // Mostra qual era a opção correta (texto)
         const respostaCerta = item.o[item.r];
-        // Se errar, mostra a explicação e só passa ao clicar
-        mostrarFeedback(
-            `❌ ERRADO! <br> A resposta certa era: <strong>${respostaCerta}</strong>. <br><br> 
-            <em>Clica em qualquer lugar para continuar...</em>`, 
-            "erro", 
-            true // Indica que precisa de clique
-        );
+        mostrarFeedback(`❌ A certa era: ${respostaCerta}`, "erro", true);
     }
-    
-    progresso[item.materia].total++;
-    localStorage.setItem('estudoApp', JSON.stringify(progresso));
 }
 
-function mostrarFeedback(msg, tipo, aguardarClique = false) {
-    // Remover feedbacks antigos se existirem
-    const antigo = document.querySelector('.feedback-toast');
-    if(antigo) antigo.remove();
+// 2. Para Matemática e Tabuadas (Caixa de Texto / Input)
+function verificarRespostaInput() {
+    const input = document.getElementById('resposta-user');
+    if (!input) return;
+
+    const item = perguntasAtuais[indiceAtual];
+    const valor = input.value.trim();
+
+    if (valor === "") return;
+
+    const acertou = parseInt(valor) === item.r;
+    
+    // Usa a mesma função mestre para salvar
+    registrarResultado(acertou, item.materia);
+
+    if (acertou) {
+        mostrarFeedback("✅ CORRETO!", "sucesso");
+        // Desativa o botão para evitar múltiplos envios
+        const btn = document.querySelector('.input-container .missao');
+        if(btn) btn.disabled = true;
+        
+        setTimeout(proximaQuestao, 2000);
+    } else {
+        mostrarFeedback(`❌ Errado! Era ${item.r}`, "erro", true);
+    }
+}
+
+// 3. A Função Mestre (O "Cérebro" que salva tudo)
+function registrarResultado(acertou, materia) {
+    if (!progresso[materia]) {
+        progresso[materia] = { acertos: 0, total: 0 };
+    }
+
+    if (acertou) {
+        progresso[materia].acertos++;
+    }
+    progresso[materia].total++;
+
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+    
+    // Se estiver na index, atualiza o gráfico/tabela na hora
+    if (typeof atualizarPanorama === "function") {
+        atualizarPanorama();
+    }
+}
+
+function mostrarFeedback(mensagem, tipo, persistente = false) {
+    // Remove qualquer toast anterior para não acumular
+    const anterior = document.querySelector('.feedback-toast');
+    if (anterior) anterior.remove();
 
     const toast = document.createElement('div');
     toast.className = `feedback-toast feedback-${tipo}`;
-    toast.innerHTML = msg;
-    document.body.appendChild(toast);
     
-    if (aguardarClique) {
-        // Cria um fundo invisível que deteta o clique em "qualquer canto"
-        const overlay = document.createElement('div');
-        overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; z-index:999;";
-        document.body.appendChild(overlay);
+    // Se for erro, adicionamos a instrução informativa
+    if (tipo === 'erro') {
+        toast.innerHTML = `
+            <div>${mensagem}</div>
+            <div style="font-size: 0.8rem; margin-top: 8px; font-weight: normal; opacity: 0.9;">
+                ⚠️ Clique aqui para continuar
+            </div>
+        `;
+    } else {
+        toast.innerText = mensagem;
+    }
 
-        const avancar = () => {
+    document.body.appendChild(toast);
+
+    if (tipo === 'sucesso') {
+        // Para o "Correto!", removemos após 3 segundos
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 500); // tempo para a animação de sumir
+        }, 3000);
+    } else {
+        // Se for erro, só remove ao clicar
+        toast.onclick = () => {
             toast.remove();
-            overlay.remove();
-            window.removeEventListener('click', avancar);
             proximaQuestao();
         };
-
-        // Adiciona o evento de clique para avançar apenas no erro
-        setTimeout(() => { 
-            window.addEventListener('click', avancar);
-        }, 500); // Pequeno atraso para evitar cliques acidentais
     }
 }
+function registrarResultado(acertou, materia) {
+    // 1. Garantia: se a matéria não existe no progresso (ex: uma tabuada nova), cria agora
+    if (!progresso[materia]) {
+        progresso[materia] = { acertos: 0, total: 0 };
+    }
 
+    // 2. Soma os pontos
+    if (acertou) {
+        progresso[materia].acertos++;
+    }
+    progresso[materia].total++;
+
+    // 3. Salva no computador do utilizador
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+    
+    // 4. Atualiza o panorama visual se ele existir na página
+    if (typeof atualizarPanorama === "function") atualizarPanorama();
+}
 function proximaQuestao() {
     // 1. Força a saída do foco do botão atual
     if (document.activeElement instanceof HTMLElement) {
@@ -176,21 +230,19 @@ function treinar(materia) {
 function iniciarDesafio() {
     modoDesafio = true;
     indiceAtual = 0;
-    
-    const p8 = shuffle([...bancoDados.portugues]).slice(0, 5).map(q => ({...q, materia: 'portugues'}));
-    const m8 = shuffle([...bancoDados.matematica]).slice(0, 5).map(q => ({...q, materia: 'matematica'}));
-    const e8 = shuffle([...bancoDados.estudoMeio]).slice(0, 5).map(q => ({...q, materia: 'estudoMeio'}));
-    const tab2 = shuffle([...bancoDados.tabuada2]).slice(0, 5).map(q => ({...q, materia: 'tabuada2'}));
-    const tab3 = shuffle([...bancoDados.tabuada3]).slice(0, 5).map(q => ({...q, materia: 'tabuada3'}));
-    const tab4 = shuffle([...bancoDados.tabuada4]).slice(0, 5).map(q => ({...q, materia: 'tabuada4'}));
-    const tab5 = shuffle([...bancoDados.tabuada5]).slice(0, 5).map(q => ({...q, materia: 'tabuada5'}));
-    const tab6 = shuffle([...bancoDados.tabuada6]).slice(0, 5).map(q => ({...q, materia: 'tabuada6'}));
-    const tab7 = shuffle([...bancoDados.tabuada7]).slice(0, 5).map(q => ({...q, materia: 'tabuada7'}));
-    const tab8 = shuffle([...bancoDados.tabuada8]).slice(0, 5).map(q => ({...q, materia: 'tabuada8'}));
-    const tab9 = shuffle([...bancoDados.tabuada9]).slice(0, 5).map(q => ({...q, materia: 'tabuada9'}));
-    const tab10 = shuffle([...bancoDados.tabuada10]).slice(0, 5).map(q => ({...q, materia: 'tabuada10'}));
+    let poolDesafio = [];
 
-    perguntasAtuais = shuffle([...p8, ...m8, ...e8, ...tab2, ...tab3, ...tab4, ...tab5, ...tab6, ...tab7, ...tab8, ...tab9, ...tab10]);
+    // Lista todas as matérias que entram no desafio
+    const materias = ['portugues', 'matematica', 'estudoMeio', 'tabuada2', 'tabuada3', 'tabuada4', 'tabuada5'];
+
+    materias.forEach(m => {
+        if (bancoDados[m]) {
+            const extraidas = shuffle([...bancoDados[m]]).slice(0, 3).map(q => ({...q, materia: m}));
+            poolDesafio.push(...extraidas);
+        }
+    });
+
+    perguntasAtuais = shuffle(poolDesafio);
     renderizarQuestao();
 }
 
@@ -201,9 +253,9 @@ function finalizarSessao() {
     zona.innerHTML = `
         <div class="card-pergunta">
             <h2>🎉 Sessão Terminada!</h2>
-            <p>Concluíste todas as questões desta missão.</p>
-            <button class="missao" onclick="${modoDesafio ? 'iniciarDesafio()' : `treinar('${materiaAtiva}')`}"> Treinar Novamente</button>
-            <button class="missao" style="background:#636e72" onclick="window.location.href='../index.html'"> Voltar ao Menu</button>
+            <p>Concluíste esta missão!</p>
+            <button class="missao" onclick="location.reload()">🔄 Escolher Outra Matéria</button>
+            <button class="missao" style="background:#636e72" onclick="window.location.href='../index.html'">🏠 Menu Principal</button>
         </div>
     `;
 }
