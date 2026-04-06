@@ -211,3 +211,16 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
+/* Esconde as setas para Chrome, Safari, Edge e Opera */
+.input-tabuada::-webkit-outer-spin-button,
+.input-tabuada::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Esconde as setas para Firefox */
+.input-tabuada {
+  -moz-appearance: textfield;
+  text-align: center; /* Opcional: centraliza o número para ficar bonito */
+}

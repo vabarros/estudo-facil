@@ -180,8 +180,17 @@ function iniciarDesafio() {
     const p8 = shuffle([...bancoDados.portugues]).slice(0, 5).map(q => ({...q, materia: 'portugues'}));
     const m8 = shuffle([...bancoDados.matematica]).slice(0, 5).map(q => ({...q, materia: 'matematica'}));
     const e8 = shuffle([...bancoDados.estudoMeio]).slice(0, 5).map(q => ({...q, materia: 'estudoMeio'}));
-    
-    perguntasAtuais = shuffle([...p8, ...m8, ...e8]);
+    const tab2 = shuffle([...bancoDados.tabuada2]).slice(0, 5).map(q => ({...q, materia: 'tabuada2'}));
+    const tab3 = shuffle([...bancoDados.tabuada3]).slice(0, 5).map(q => ({...q, materia: 'tabuada3'}));
+    const tab4 = shuffle([...bancoDados.tabuada4]).slice(0, 5).map(q => ({...q, materia: 'tabuada4'}));
+    const tab5 = shuffle([...bancoDados.tabuada5]).slice(0, 5).map(q => ({...q, materia: 'tabuada5'}));
+    const tab6 = shuffle([...bancoDados.tabuada6]).slice(0, 5).map(q => ({...q, materia: 'tabuada6'}));
+    const tab7 = shuffle([...bancoDados.tabuada7]).slice(0, 5).map(q => ({...q, materia: 'tabuada7'}));
+    const tab8 = shuffle([...bancoDados.tabuada8]).slice(0, 5).map(q => ({...q, materia: 'tabuada8'}));
+    const tab9 = shuffle([...bancoDados.tabuada9]).slice(0, 5).map(q => ({...q, materia: 'tabuada9'}));
+    const tab10 = shuffle([...bancoDados.tabuada10]).slice(0, 5).map(q => ({...q, materia: 'tabuada10'}));
+
+    perguntasAtuais = shuffle([...p8, ...m8, ...e8, ...tab2, ...tab3, ...tab4, ...tab5, ...tab6, ...tab7, ...tab8, ...tab9, ...tab10]);
     renderizarQuestao();
 }
 
