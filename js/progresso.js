@@ -67,30 +67,6 @@ function renderizarQuestao() {
     }
 }
 
-function treinar(materia) {
-    // 1. Pega as perguntas fixas do bancoDados
-    let perguntasDaMateria = [...(bancoDados[materia] || [])];
-
-    // 2. Busca perguntas EXTRAS do admin (se existirem)
-    const extrasRaw = localStorage.getItem('estudo_extras');
-    if (extrasRaw) {
-        const extras = JSON.parse(extrasRaw);
-        // Filtra para pegar apenas as perguntas da matéria selecionada
-        const filtradas = extras.filter(p => p.materia === materia);
-        perguntasDaMateria = perguntasDaMateria.concat(filtradas);
-    }
-
-    if (perguntasDaMateria.length === 0) {
-        alert("Ainda não há perguntas para esta matéria!");
-        return;
-    }
-
-    // 3. O resto da lógica continua igual (shuffle, slice, etc)
-    perguntasAtuais = shuffle(perguntasDaMateria).slice(0, 10);
-    indiceAtual = 0;
-    // ... chama renderizarQuestao()
-}
-
 // 1. Para Português e Estudo do Meio (Botões de Opção)
 function verificarResposta(escolha) {
     const item = perguntasAtuais[indiceAtual];
@@ -206,19 +182,6 @@ function proximaQuestao() {
     renderizarQuestao();
 }
 
-// Inicia 10 perguntas sem repetir
-function treinar(materia) {
-    materiaAtiva = materia;
-    modoDesafio = false;
-    indiceAtual = 0;
-    
-    // Filtramos o banco para pegar apenas o que ainda não foi muito usado nesta sessão
-    let todas = shuffle([...bancoDados[materia]]);
-    perguntasAtuais = todas.slice(0, 10).map(q => ({...q, materia}));
-    
-    renderizarQuestao();
-}
-
 // Desafio Diário: 5 de cada sem repetir
 function iniciarDesafio() {
     modoDesafio = true;
@@ -229,10 +192,14 @@ function iniciarDesafio() {
     const materias = ['portugues', 'matematica', 'estudoMeio'];
 
     materias.forEach(m => {
-        if (bancoDados[m]) {
-            const extraidas = shuffle([...bancoDados[m]]).slice(0, 3).map(q => ({...q, materia: m}));
-            poolDesafio.push(...extraidas);
-        }
+    // Agora lê da nuvem (window.bancoDeDados)
+    const materiaFiltro = (m === 'estudoMeio') ? 'estudo' : m;
+    const bancoFiltrado = window.bancoDeDados.filter(q => q.materia === materiaFiltro);
+
+    if (bancoFiltrado.length > 0) {
+        const extraidas = shuffle([...bancoFiltrado]).slice(0, 3);
+        poolDesafio.push(...extraidas);
+    }
     });
 
     perguntasAtuais = shuffle(poolDesafio);
