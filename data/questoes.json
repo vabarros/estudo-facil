@@ -95,178 +95,1632 @@
     "tipo": "opcao",
     "materia": "estudo"
   },
-  { "q": "Calcula: 250 + 150", "tipo": "input", "r": 400, "materia": "matematica" },
-  { "q": "Quanto é 500 - 300?", "tipo": "input", "r": 200, "materia": "matematica" },
-  { "q": "Decompõe: 492 = 400 + __ + 2", "tipo": "input", "r": 90, "materia": "matematica" },
-  { "q": "Qual é o dobro de 45?", "tipo": "input", "r": 90, "materia": "matematica" },
-  { "q": "Completa a sequência: 5, 10, 15, 20, __", "tipo": "input", "r": 25, "materia": "matematica" },
-  { "q": "Calcula: 380 + 20", "tipo": "input", "r": 400, "materia": "matematica" },
-  { "q": "Quanto é 400 - 150?", "tipo": "input", "r": 250, "materia": "matematica" },
-  { "q": "Qual é o triplo de 5?", "tipo": "input", "r": 15, "materia": "matematica" },
-  { "q": "A metade de 60 é:", "tipo": "input", "r": 30, "materia": "matematica" },
-  { "q": "Qual é o número par que vem logo a seguir ao 454?", "tipo": "input", "r": 456, "materia": "matematica" },
-  { "q": "Calcula: 220 + 80", "tipo": "input", "r": 300, "materia": "matematica" },
-  { "q": "Quanto é 400 - 110?", "tipo": "input", "r": 290, "materia": "matematica" },
-  { "q": "Decompõe: 418 = 400 + __ + 8", "tipo": "input", "r": 10, "materia": "matematica" },
-  { "q": "Qual é o dobro de 35?", "tipo": "input", "r": 70, "materia": "matematica" },
-  { "q": "Completa a sequência: 200, 250, 300, __", "tipo": "input", "r": 350, "materia": "matematica" },
-  { "q": "Calcula: 490 + 10", "tipo": "input", "r": 500, "materia": "matematica" },
-  { "q": "Quanto é 350 - 200?", "tipo": "input", "r": 150, "materia": "matematica" },
-  { "q": "Qual é o triplo de 4?", "tipo": "input", "r": 12, "materia": "matematica" },
-  { "q": "A metade de 80 é:", "tipo": "input", "r": 40, "materia": "matematica" },
-  { "q": "Qual o número que fica entre 399 e 401?", "tipo": "input", "r": 400, "materia": "matematica" },
-  { "q": "Quanto é 100 + 100 + 100 + 50?", "tipo": "input", "r": 350, "materia": "matematica" },
-  { "q": "Decompõe: 500 = 400 + __", "tipo": "input", "r": 100, "materia": "matematica" },
-  { "q": "Num autocarro iam 15 pessoas. Na paragem entraram mais o dobro. Quantas pessoas entraram?", "tipo": "input", "r": 30, "materia": "matematica" },
-  { "q": "O Tiago tem 200 euros e gastou 50 euros. Com quanto ficou?", "tipo": "input", "r": 150, "materia": "matematica" },
-  { "q": "Uma aranha tem 8 patas. Quantas patas têm 2 aranhas?", "tipo": "input", "r": 16, "materia": "matematica" },
-  { "q": "A Ana tinha 40 rebuçados e deu a metade ao irmão. Com quantos ficou?", "tipo": "input", "r": 20, "materia": "matematica" },
-  { "q": "Uma embalagem tem 4 iogurtes. Quantos iogurtes há em 5 embalagens?", "tipo": "input", "r": 20, "materia": "matematica" },
-  { "q": "O almoço custou 8€. Paguei com uma nota de 20€. Qual o troco?", "tipo": "input", "r": 12, "materia": "matematica" },
-  { "q": "A Maria tem 150 cromos e o Pedro tem o dobro. Quantos cromos tem o Pedro?", "tipo": "input", "r": 300, "materia": "matematica" },
-  { "q": "Um estojo custa 12€. Se comprar dois estojos, quanto vou pagar?", "tipo": "input", "r": 24, "materia": "matematica" },
-  { "q": "Num aquário havia 30 peixes. Morreram 5 e nasceram 10. Quantos peixes há agora?", "tipo": "input", "r": 35, "materia": "matematica" },
-  { "q": "Tenho 3 notas de 10€ e 2 moedas de 2€. Quantos euros tenho no total?", "tipo": "input", "r": 34, "materia": "matematica" },
-  { "q": "Uma caixa de ovos leva 12 ovos. Quantos ovos há em 2 caixas?", "tipo": "input", "r": 24, "materia": "matematica" },
-  { "q": "Calcula: 120 + 30", "tipo": "input", "r": 150, "materia": "matematica" },
-  { "q": "Quanto é 300 - 50?", "tipo": "input", "r": 250, "materia": "matematica" },
-  { "q": "Decompõe: 342 = 300 + 40 + __", "tipo": "input", "r": 2, "materia": "matematica" },
-  { "q": "Qual é o dobro de 25?", "tipo": "input", "r": 50, "materia": "matematica" },
-  { "q": "Completa a sequência: 10, 20, 30, __", "tipo": "input", "r": 40, "materia": "matematica" },
-  { "q": "Calcula: 200 + 100", "tipo": "input", "r": 300, "materia": "matematica" },
-  { "q": "Quanto é 450 - 50?", "tipo": "input", "r": 400, "materia": "matematica" },
-  { "q": "Decompõe o número: 478 = 400 + __ + 8", "tipo": "input", "r": 70, "materia": "matematica" },
-  { "q": "Qual é o número que vem logo a seguir ao 399?", "tipo": "input", "r": 400, "materia": "matematica" },
-  { "q": "Qual é o dobro de 15?", "tipo": "input", "r": 30, "materia": "matematica" },
-  { "q": "Completa a sequência: 100, 110, 120, __", "tipo": "input", "r": 130, "materia": "matematica" },
-  { "q": "Quanto é 250 + 250?", "tipo": "input", "r": 500, "materia": "matematica" },
-  { "q": "Decompõe: 125 = 100 + __ + 5", "tipo": "input", "r": 20, "materia": "matematica" },
-  { "q": "Qual é a metade de 20?", "tipo": "input", "r": 10, "materia": "matematica" },
-  { "q": "Calcula: 320 + 40", "tipo": "input", "r": 360, "materia": "matematica" },
-  { "q": "Qual é o número que tem 3 centenas, 2 dezenas e 5 unidades?", "tipo": "input", "r": 325, "materia": "matematica" },
-  { "q": "Quanto falta a 80 para chegar a 100?", "tipo": "input", "r": 20, "materia": "matematica" },
-  { "q": "Completa: 200 + 200 + 200 = __", "tipo": "input", "r": 600, "materia": "matematica" },
-  { "q": "Se o dobro de 10 é 20, qual é o dobro de 100?", "tipo": "input", "r": 200, "materia": "matematica" },
-  { "q": "Qual é o número anterior (antes) ao 250?", "tipo": "input", "r": 249, "materia": "matematica" },
-  { "q": "Calcula: 500 - 200", "tipo": "input", "r": 300, "materia": "matematica" },
-  { "q": "Decompõe: 405 = 400 + __", "tipo": "input", "r": 5, "materia": "matematica" },
-  { "q": "Qual é o triplo de 3? (3 + 3 + 3)", "tipo": "input", "r": 9, "materia": "matematica" },
-  { "q": "Completa a sequência: 5, 10, 15, 20, __", "tipo": "input", "r": 25, "materia": "matematica" },
-  { "q": "Para vivermos bem com os outros, o que é fundamental?", "o": ["Respeitar as diferenças", "Falar sempre mais alto"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Qual é uma regra importante de boa convivência?", "o": ["Saber ouvir os outros", "Empurrar na fila"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Ser amigo e respeitar os colegas faz parte de:", "o": ["Ser um bom cidadão", "Ser um bom atleta"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Um exemplo de um direito da criança é:", "o": ["Ter proteção", "Trabalhar para ganhar dinheiro"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Um exemplo de um dever da criança na escola é:", "o": ["Estudar e prestar atenção", "Poder brincar"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Qual destas é uma regra de segurança na escola?", "o": ["Não correr nos corredores", "Gritar na sala"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O que significa ser solidário na comunidade?", "o": ["Ajudar os outros", "Pensar só em nós"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "As pessoas que vieram de outros países e vivem em Portugal devem ser:", "o": ["Respeitadas e acolhidas", "Ignoradas"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Quais são as três partes principais em que se divide o corpo humano?", "o": ["Cabeça, tronco e membros", "Mãos, pés e joelhos"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Quais são as partes do corpo que dão suporte e nos permitem mexer?", "o": ["Os ossos e os músculos", "A pele e o cabelo"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Como se chama o conjunto de todos os ossos do nosso corpo?", "o": ["Esqueleto", "Músculo"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Como se chama o osso que protege o nosso cérebro?", "o": ["Crânio", "Costela"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os ossos das costas que nos mantêm direitos formam a:", "o": ["Coluna vertebral", "Bacia"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os músculos servem para nos ajudar a:", "o": ["Fazer movimentos", "Pensar"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Como se chama o lugar onde os ossos se unem e permitem dobrar o corpo?", "o": ["Articulações", "Músculos"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Quantos ossos aproximados tem um adulto? (Escreve o número: 206)", "o": ["206", "100", "300", "250"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Qual é o órgão responsável por bombear o sangue para todo o corpo?", "o": ["Coração", "Pulmões"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Onde se localiza o coração?", "o": ["No tórax, entre os pulmões", "Na barriga"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os pulmões são os órgãos principais de qual função?", "o": ["Respiração", "Digestão"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O que acontece ao peito quando inspiramos (entrada de ar)?", "o": ["Aumenta de tamanho", "Diminui de tamanho"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Qual o órgão que nos ajuda a digerir os alimentos que comemos?", "o": ["Estômago", "Coração"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Qual é o órgão que controla todo o nosso corpo e pensamentos?", "o": ["Cérebro", "Coração"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Onde se localiza o cérebro?", "o": ["Na cabeça", "No abdómen"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os ossos que protegem o coração e os pulmões chamam-se:", "o": ["Costelas", "Fémur"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O que serve para nos proteger de doenças graves?", "o": ["A vacinação", "Ver televisão"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Devemos tomar medicamentos apenas quando receitados pelo:", "o": ["Médico", "Amigo"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O que deves fazer se encontrares um medicamento em casa?", "o": ["Não mexer e avisar um adulto", "Provar para ver o sabor"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Para termos uma vida saudável, o que devemos evitar?", "o": ["Comer muitos doces", "Dormir bem"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Ter uma alimentação equilibrada faz parte do nosso:", "o": ["Bem-estar", "Dever de casa"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Para ter dentes saudáveis, devo escová-los:", "o": ["Depois das refeições", "Uma vez por semana"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O que deves fazer antes de comer para manter a higiene?", "o": ["Lavar as mãos", "Pentear o cabelo"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "A postura correta ao sentar na cadeira ajuda a proteger a:", "o": ["Coluna", "Visão"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Para proteger os ouvidos, devemos evitar:", "o": ["Sons muito altos", "Usar chapéu"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Como se chama o documento que prova a nossa identidade e cidadania?", "o": ["Cartão de Cidadão", "Livro de Matemática"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os teus avós maternos são os pais da tua:", "o": ["Mãe", "Pai"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os filhos dos teus tios são teus:", "o": ["Primos", "Irmãos"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Em que país vives?", "o": ["Portugal", "Espanha"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Portugal situa-se no extremo de qual continente?", "o": ["Europeu", "Americano"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Qual é o símbolo nacional que representa Portugal?", "o": ["Bandeira Nacional", "Um brinquedo"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O conjunto de pessoas que partilha a mesma língua e história forma uma:", "o": ["Nação / Povo", "Turma"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "O conjunto de pessoas que vivem e trabalham no mesmo lugar chama-se:", "o": ["Comunidade", "Família nuclear"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Além da família, qual é outro grupo importante a que pertences?", "o": ["Turma / Escola", "Grupo de desconhecidos"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "As pessoas que vivem num prédio ou na mesma rua formam uma:", "o": ["Vizinhança", "Família nuclear"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Os vizinhos são pessoas que vivem:", "o": ["Perto da nossa casa", "Noutro país"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Na escola, as decisões que interessam a todos devem ser:", "o": ["Tomadas em conjunto / Grupo", "Tomadas por uma só pessoa"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Quem é o responsável por orientar a nossa turma na escola?", "o": ["Professor(a)", "Presidente"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "As plantas e os animais são seres vivos porque:", "o": ["Nascem, crescem e morrem", "Não precisam de comer"], "r": 0, "tipo": "opcao", "materia": "estudo" },
-  { "q": "Na palavra 'exame', a letra 'x' tem o som de:", "o": ["z", "ch", "cs"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras está escrita corretamente?", "o": ["Bicicleta", "Bicicreta"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se escreve o nome da estação do ano?", "o": ["Inverno", "Inuerno"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o som do 'c' na palavra 'cebola'?", "o": ["Som de 's'", "Som de 'k'"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Indica a palavra que usa 'gu' corretamente:", "o": ["Guerrilha", "Gerilha"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Classifica a palavra 'Livro' quanto ao número de sílabas:", "o": ["Monossílaba", "Dissílaba", "Trissílaba"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Na palavra 'Caneta', a sílaba tónica é:", "o": ["Ca", "ne", "ta"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras precisa de um acento agudo (´)?", "o": ["Agua", "Mesa", "Cadeira"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Identifica o nome próprio na frase: 'O gato do Rui é bonito.'", "o": ["gato", "Rui", "bonito"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o género masculino do nome 'Galinha'?", "o": ["Galo", "Pinto"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se forma o plural da palavra 'Anel'?", "o": ["Anéis", "Anels"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "A palavra 'cardume' é um nome:", "o": ["Comum", "Próprio", "Coletivo"], "r": 2, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras é um nome comum?", "o": ["Porto", "Cidade", "Maria"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual o som do 'x' na palavra 'exemplo'?", "o": ["Som de 'z'", "Som de 'ch'", "Som de 's'"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual palavra usa o 'u' mudo?", "o": ["Guitarra", "Gema"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como escrevemos antes de 'p' e 'b'?", "o": ["Usamos 'm'", "Usamos 'n'"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "A palavra 'Sol' é classificada como:", "o": ["Monossílaba", "Dissílaba"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras tem acento circunflexo?", "o": ["Pêssego", "Maçã"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual o plural de 'Pão'?", "o": ["Pães", "Pãos"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o feminino de 'Padrinho'?", "o": ["Madrinha", "Mãe"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "O nome 'Porto' refere-se a uma cidade, logo é:", "o": ["Nome Próprio", "Nome Comum"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "O coletivo de 'Livros' é:", "o": ["Biblioteca", "Pinacoteca"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se escreve a palavra que usamos para temperar a comida?", "o": ["Açúcar", "Asúcar"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual a escrita correta da ave?", "o": ["Águia", "Agia"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Em qual destas palavras o 'x' soa como 'ch'?", "o": ["Peixe", "Próximo", "Texto"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o grupo consonântico correto para 'fruta'?", "o": ["fr", "fl", "gr"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como escrevemos o som nasal na palavra 'Cinto'?", "o": ["com 'in'", "com 'im'"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "A palavra 'Hipopótamo' tem 5 sílabas. Ela é:", "o": ["Polissílaba", "Trissílaba"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual o nome do sinal (ç)?", "o": ["Cedilha", "Til"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual acento usamos para o som aberto em 'Pé'?", "o": ["Acento agudo (´)", "Acento circunflexo (^)"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Quantas sílabas tem a palavra 'Ar'?", "o": ["Uma (Monossílaba)", "Duas (Dissílaba)"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras é um nome próprio de um país?", "o": ["Portugal", "País", "Europa"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "O coletivo de 'Ovelhas' é:", "o": ["Rebanho", "Matilha"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o feminino de 'Doutor'?", "o": ["Doutora", "Doutriz"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se escreve o plural de 'Nariz'?", "o": ["Narizes", "Narizs"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual o masculino de 'Égua'?", "o": ["Cavalo", "Boi"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se forma o plural de 'Jardim'?", "o": ["Jardins", "Jardims"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Na frase 'A Maria corre', 'Maria' é um nome:", "o": ["Próprio", "Comum"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o coletivo de 'Cães'?", "o": ["Matilha", "Alcateia"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "O plural de 'Mão' é:", "o": ["Mãos", "Mães"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "A palavra 'Pincel' termina em 'l'. Qual o seu plural?", "o": ["Pincéis", "Pincels"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é a letra que usamos antes de 'e' ou 'i' para o som 'ss'?", "o": ["A letra 'c'", "A letra 'q'"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se escreve a palavra para apagar o fogo?", "o": ["Extintor", "Estintor"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras tem o som 'lh'?", "o": ["Coelho", "Coelo"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se escreve corretamente?", "o": ["Bochecha", "Boxexa"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como escrevemos o som nasal em 'Bomba'?", "o": ["com 'm'", "com 'n'"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "A palavra 'Jacaré' tem 3 sílabas. Ela é:", "o": ["Trissílaba", "Dissílaba"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual acento usamos em 'Vovó' (som aberto)?", "o": ["Acento agudo (´)", "Acento circunflexo (^)"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Quantas sílabas tem a palavra 'Comboio'?", "o": ["3 (Trissílaba)", "4 (Polissílaba)"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Lisboa é um nome próprio porque indica:", "o": ["Uma cidade específica", "Um objeto comum"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "O coletivo de 'Jogadores' é:", "o": ["Equipa", "Turma"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o feminino de 'Pai'?", "o": ["Mãe", "Titio"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se escreve o plural de 'Lençol'?", "o": ["Lençóis", "Lençols"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual o masculino de 'Rainha'?", "o": ["Rei", "Príncipe"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é o plural de 'Botão'?", "o": ["Botões", "Botãos"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como chamamos a um conjunto de aviões?", "o": ["Esquadrilha", "Frota"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "O masculino de 'Atriz' é:", "o": ["Ator", "Artista"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Como se forma o plural de 'Nuvem'?", "o": ["Nuvens", "Nuvems"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Na palavra 'Menino', a sílaba tónica é 'ni'. Como se chamam as outras sílabas?", "o": ["Átonas", "Tónicas"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é a sílaba tónica da palavra 'Rápido'?", "o": ["Rá", "pi", "do"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Na palavra 'Estrela', qual é a sílaba tónica?", "o": ["Es", "tre", "la"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Quantas sílabas átonas tem a palavra 'Café'?", "o": ["Uma ('ca')", "Duas"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Identifica a sílaba tónica da palavra 'Escola':", "o": ["Es", "co", "la"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual destas palavras tem a sílaba tónica na última sílaba?", "o": ["Anzol", "Livro", "Lápis"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Na palavra 'Sábado', a sílaba tónica é 'Sá'. As sílabas 'ba' e 'do' são:", "o": ["Átonas", "Tónicas"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é a sílaba tónica de 'Coração'?", "o": ["Co", "ra", "ção"], "r": 2, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Na palavra 'Janela', a sílaba tónica é:", "o": ["Ja", "ne", "la"], "r": 1, "tipo": "opcao", "materia": "portugues" },
-  { "q": "As sílabas de uma palavra que não são tónicas chamam-se:", "o": ["Átonas", "Fracas"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Em 'Porto', a sílaba tónica é 'Por'. Ela é a:", "o": ["Penúltima sílaba", "Última sílaba"], "r": 0, "tipo": "opcao", "materia": "portugues" },
-  { "q": "Qual é a sílaba tónica de 'Jacaré'?", "o": ["Ja", "ca", "ré"], "r": 2, "tipo": "opcao", "materia": "portugues" }
+  {
+    "q": "Calcula: 250 + 150",
+    "tipo": "input",
+    "r": 400,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 500 - 300?",
+    "tipo": "input",
+    "r": 200,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe: 492 = 400 + __ + 2",
+    "tipo": "input",
+    "r": 90,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o dobro de 45?",
+    "tipo": "input",
+    "r": 90,
+    "materia": "matematica"
+  },
+  {
+    "q": "Completa a sequência: 5, 10, 15, 20, __",
+    "tipo": "input",
+    "r": 25,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 380 + 20",
+    "tipo": "input",
+    "r": 400,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 400 - 150?",
+    "tipo": "input",
+    "r": 250,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o triplo de 5?",
+    "tipo": "input",
+    "r": 15,
+    "materia": "matematica"
+  },
+  {
+    "q": "A metade de 60 é:",
+    "tipo": "input",
+    "r": 30,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o número par que vem logo a seguir ao 454?",
+    "tipo": "input",
+    "r": 456,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 220 + 80",
+    "tipo": "input",
+    "r": 300,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 400 - 110?",
+    "tipo": "input",
+    "r": 290,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe: 418 = 400 + __ + 8",
+    "tipo": "input",
+    "r": 10,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o dobro de 35?",
+    "tipo": "input",
+    "r": 70,
+    "materia": "matematica"
+  },
+  {
+    "q": "Completa a sequência: 200, 250, 300, __",
+    "tipo": "input",
+    "r": 350,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 490 + 10",
+    "tipo": "input",
+    "r": 500,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 350 - 200?",
+    "tipo": "input",
+    "r": 150,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o triplo de 4?",
+    "tipo": "input",
+    "r": 12,
+    "materia": "matematica"
+  },
+  {
+    "q": "A metade de 80 é:",
+    "tipo": "input",
+    "r": 40,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual o número que fica entre 399 e 401?",
+    "tipo": "input",
+    "r": 400,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 100 + 100 + 100 + 50?",
+    "tipo": "input",
+    "r": 350,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe: 500 = 400 + __",
+    "tipo": "input",
+    "r": 100,
+    "materia": "matematica"
+  },
+  {
+    "q": "Num autocarro iam 15 pessoas. Na paragem entraram mais o dobro. Quantas pessoas entraram?",
+    "tipo": "input",
+    "r": 30,
+    "materia": "matematica"
+  },
+  {
+    "q": "O Tiago tem 200 euros e gastou 50 euros. Com quanto ficou?",
+    "tipo": "input",
+    "r": 150,
+    "materia": "matematica"
+  },
+  {
+    "q": "Uma aranha tem 8 patas. Quantas patas têm 2 aranhas?",
+    "tipo": "input",
+    "r": 16,
+    "materia": "matematica"
+  },
+  {
+    "q": "A Ana tinha 40 rebuçados e deu a metade ao irmão. Com quantos ficou?",
+    "tipo": "input",
+    "r": 20,
+    "materia": "matematica"
+  },
+  {
+    "q": "Uma embalagem tem 4 iogurtes. Quantos iogurtes há em 5 embalagens?",
+    "tipo": "input",
+    "r": 20,
+    "materia": "matematica"
+  },
+  {
+    "q": "O almoço custou 8€. Paguei com uma nota de 20€. Qual o troco?",
+    "tipo": "input",
+    "r": 12,
+    "materia": "matematica"
+  },
+  {
+    "q": "A Maria tem 150 cromos e o Pedro tem o dobro. Quantos cromos tem o Pedro?",
+    "tipo": "input",
+    "r": 300,
+    "materia": "matematica"
+  },
+  {
+    "q": "Um estojo custa 12€. Se comprar dois estojos, quanto vou pagar?",
+    "tipo": "input",
+    "r": 24,
+    "materia": "matematica"
+  },
+  {
+    "q": "Num aquário havia 30 peixes. Morreram 5 e nasceram 10. Quantos peixes há agora?",
+    "tipo": "input",
+    "r": 35,
+    "materia": "matematica"
+  },
+  {
+    "q": "Tenho 3 notas de 10€ e 2 moedas de 2€. Quantos euros tenho no total?",
+    "tipo": "input",
+    "r": 34,
+    "materia": "matematica"
+  },
+  {
+    "q": "Uma caixa de ovos leva 12 ovos. Quantos ovos há em 2 caixas?",
+    "tipo": "input",
+    "r": 24,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 120 + 30",
+    "tipo": "input",
+    "r": 150,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 300 - 50?",
+    "tipo": "input",
+    "r": 250,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe: 342 = 300 + 40 + __",
+    "tipo": "input",
+    "r": 2,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o dobro de 25?",
+    "tipo": "input",
+    "r": 50,
+    "materia": "matematica"
+  },
+  {
+    "q": "Completa a sequência: 10, 20, 30, __",
+    "tipo": "input",
+    "r": 40,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 200 + 100",
+    "tipo": "input",
+    "r": 300,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 450 - 50?",
+    "tipo": "input",
+    "r": 400,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe o número: 478 = 400 + __ + 8",
+    "tipo": "input",
+    "r": 70,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o número que vem logo a seguir ao 399?",
+    "tipo": "input",
+    "r": 400,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o dobro de 15?",
+    "tipo": "input",
+    "r": 30,
+    "materia": "matematica"
+  },
+  {
+    "q": "Completa a sequência: 100, 110, 120, __",
+    "tipo": "input",
+    "r": 130,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto é 250 + 250?",
+    "tipo": "input",
+    "r": 500,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe: 125 = 100 + __ + 5",
+    "tipo": "input",
+    "r": 20,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é a metade de 20?",
+    "tipo": "input",
+    "r": 10,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 320 + 40",
+    "tipo": "input",
+    "r": 360,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o número que tem 3 centenas, 2 dezenas e 5 unidades?",
+    "tipo": "input",
+    "r": 325,
+    "materia": "matematica"
+  },
+  {
+    "q": "Quanto falta a 80 para chegar a 100?",
+    "tipo": "input",
+    "r": 20,
+    "materia": "matematica"
+  },
+  {
+    "q": "Completa: 200 + 200 + 200 = __",
+    "tipo": "input",
+    "r": 600,
+    "materia": "matematica"
+  },
+  {
+    "q": "Se o dobro de 10 é 20, qual é o dobro de 100?",
+    "tipo": "input",
+    "r": 200,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o número anterior (antes) ao 250?",
+    "tipo": "input",
+    "r": 249,
+    "materia": "matematica"
+  },
+  {
+    "q": "Calcula: 500 - 200",
+    "tipo": "input",
+    "r": 300,
+    "materia": "matematica"
+  },
+  {
+    "q": "Decompõe: 405 = 400 + __",
+    "tipo": "input",
+    "r": 5,
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o triplo de 3? (3 + 3 + 3)",
+    "tipo": "input",
+    "r": 9,
+    "materia": "matematica"
+  },
+  {
+    "q": "Completa a sequência: 5, 10, 15, 20, __",
+    "tipo": "input",
+    "r": 25,
+    "materia": "matematica"
+  },
+  {
+    "q": "Para vivermos bem com os outros, o que é fundamental?",
+    "o": [
+      "Respeitar as diferenças",
+      "Falar sempre mais alto"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Qual é uma regra importante de boa convivência?",
+    "o": [
+      "Saber ouvir os outros",
+      "Empurrar na fila"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Ser amigo e respeitar os colegas faz parte de:",
+    "o": [
+      "Ser um bom cidadão",
+      "Ser um bom atleta"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Um exemplo de um direito da criança é:",
+    "o": [
+      "Ter proteção",
+      "Trabalhar para ganhar dinheiro"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Um exemplo de um dever da criança na escola é:",
+    "o": [
+      "Estudar e prestar atenção",
+      "Poder brincar"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Qual destas é uma regra de segurança na escola?",
+    "o": [
+      "Não correr nos corredores",
+      "Gritar na sala"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O que significa ser solidário na comunidade?",
+    "o": [
+      "Ajudar os outros",
+      "Pensar só em nós"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "As pessoas que vieram de outros países e vivem em Portugal devem ser:",
+    "o": [
+      "Respeitadas e acolhidas",
+      "Ignoradas"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Quais são as três partes principais em que se divide o corpo humano?",
+    "o": [
+      "Cabeça, tronco e membros",
+      "Mãos, pés e joelhos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Quais são as partes do corpo que dão suporte e nos permitem mexer?",
+    "o": [
+      "Os ossos e os músculos",
+      "A pele e o cabelo"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Como se chama o conjunto de todos os ossos do nosso corpo?",
+    "o": [
+      "Esqueleto",
+      "Músculo"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Como se chama o osso que protege o nosso cérebro?",
+    "o": [
+      "Crânio",
+      "Costela"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os ossos das costas que nos mantêm direitos formam a:",
+    "o": [
+      "Coluna vertebral",
+      "Bacia"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os músculos servem para nos ajudar a:",
+    "o": [
+      "Fazer movimentos",
+      "Pensar"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Como se chama o lugar onde os ossos se unem e permitem dobrar o corpo?",
+    "o": [
+      "Articulações",
+      "Músculos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Quantos ossos aproximados tem um adulto? (Escreve o número: 206)",
+    "o": [
+      "206",
+      "100",
+      "300",
+      "250"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Qual é o órgão responsável por bombear o sangue para todo o corpo?",
+    "o": [
+      "Coração",
+      "Pulmões"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Onde se localiza o coração?",
+    "o": [
+      "No tórax, entre os pulmões",
+      "Na barriga"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os pulmões são os órgãos principais de qual função?",
+    "o": [
+      "Respiração",
+      "Digestão"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O que acontece ao peito quando inspiramos (entrada de ar)?",
+    "o": [
+      "Aumenta de tamanho",
+      "Diminui de tamanho"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Qual o órgão que nos ajuda a digerir os alimentos que comemos?",
+    "o": [
+      "Estômago",
+      "Coração"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Qual é o órgão que controla todo o nosso corpo e pensamentos?",
+    "o": [
+      "Cérebro",
+      "Coração"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Onde se localiza o cérebro?",
+    "o": [
+      "Na cabeça",
+      "No abdómen"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os ossos que protegem o coração e os pulmões chamam-se:",
+    "o": [
+      "Costelas",
+      "Fémur"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O que serve para nos proteger de doenças graves?",
+    "o": [
+      "A vacinação",
+      "Ver televisão"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Devemos tomar medicamentos apenas quando receitados pelo:",
+    "o": [
+      "Médico",
+      "Amigo"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O que deves fazer se encontrares um medicamento em casa?",
+    "o": [
+      "Não mexer e avisar um adulto",
+      "Provar para ver o sabor"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Para termos uma vida saudável, o que devemos evitar?",
+    "o": [
+      "Comer muitos doces",
+      "Dormir bem"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Ter uma alimentação equilibrada faz parte do nosso:",
+    "o": [
+      "Bem-estar",
+      "Dever de casa"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Para ter dentes saudáveis, devo escová-los:",
+    "o": [
+      "Depois das refeições",
+      "Uma vez por semana"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O que deves fazer antes de comer para manter a higiene?",
+    "o": [
+      "Lavar as mãos",
+      "Pentear o cabelo"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "A postura correta ao sentar na cadeira ajuda a proteger a:",
+    "o": [
+      "Coluna",
+      "Visão"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Para proteger os ouvidos, devemos evitar:",
+    "o": [
+      "Sons muito altos",
+      "Usar chapéu"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Como se chama o documento que prova a nossa identidade e cidadania?",
+    "o": [
+      "Cartão de Cidadão",
+      "Livro de Matemática"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os teus avós maternos são os pais da tua:",
+    "o": [
+      "Mãe",
+      "Pai"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os filhos dos teus tios são teus:",
+    "o": [
+      "Primos",
+      "Irmãos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Em que país vives?",
+    "o": [
+      "Portugal",
+      "Espanha"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Portugal situa-se no extremo de qual continente?",
+    "o": [
+      "Europeu",
+      "Americano"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Qual é o símbolo nacional que representa Portugal?",
+    "o": [
+      "Bandeira Nacional",
+      "Um brinquedo"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O conjunto de pessoas que partilha a mesma língua e história forma uma:",
+    "o": [
+      "Nação / Povo",
+      "Turma"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "O conjunto de pessoas que vivem e trabalham no mesmo lugar chama-se:",
+    "o": [
+      "Comunidade",
+      "Família nuclear"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Além da família, qual é outro grupo importante a que pertences?",
+    "o": [
+      "Turma / Escola",
+      "Grupo de desconhecidos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "As pessoas que vivem num prédio ou na mesma rua formam uma:",
+    "o": [
+      "Vizinhança",
+      "Família nuclear"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Os vizinhos são pessoas que vivem:",
+    "o": [
+      "Perto da nossa casa",
+      "Noutro país"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Na escola, as decisões que interessam a todos devem ser:",
+    "o": [
+      "Tomadas em conjunto / Grupo",
+      "Tomadas por uma só pessoa"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Quem é o responsável por orientar a nossa turma na escola?",
+    "o": [
+      "Professor(a)",
+      "Presidente"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "As plantas e os animais são seres vivos porque:",
+    "o": [
+      "Nascem, crescem e morrem",
+      "Não precisam de comer"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Na palavra 'exame', a letra 'x' tem o som de:",
+    "o": [
+      "z",
+      "ch",
+      "cs"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras está escrita corretamente?",
+    "o": [
+      "Bicicleta",
+      "Bicicreta"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se escreve o nome da estação do ano?",
+    "o": [
+      "Inverno",
+      "Inuerno"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o som do 'c' na palavra 'cebola'?",
+    "o": [
+      "Som de 's'",
+      "Som de 'k'"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Indica a palavra que usa 'gu' corretamente:",
+    "o": [
+      "Guerrilha",
+      "Gerilha"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Classifica a palavra 'Livro' quanto ao número de sílabas:",
+    "o": [
+      "Monossílaba",
+      "Dissílaba",
+      "Trissílaba"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Na palavra 'Caneta', a sílaba tónica é:",
+    "o": [
+      "Ca",
+      "ne",
+      "ta"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras precisa de um acento agudo (´)?",
+    "o": [
+      "Agua",
+      "Mesa",
+      "Cadeira"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Identifica o nome próprio na frase: 'O gato do Rui é bonito.'",
+    "o": [
+      "gato",
+      "Rui",
+      "bonito"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o género masculino do nome 'Galinha'?",
+    "o": [
+      "Galo",
+      "Pinto"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se forma o plural da palavra 'Anel'?",
+    "o": [
+      "Anéis",
+      "Anels"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "A palavra 'cardume' é um nome:",
+    "o": [
+      "Comum",
+      "Próprio",
+      "Coletivo"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras é um nome comum?",
+    "o": [
+      "Porto",
+      "Cidade",
+      "Maria"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual o som do 'x' na palavra 'exemplo'?",
+    "o": [
+      "Som de 'z'",
+      "Som de 'ch'",
+      "Som de 's'"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual palavra usa o 'u' mudo?",
+    "o": [
+      "Guitarra",
+      "Gema"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como escrevemos antes de 'p' e 'b'?",
+    "o": [
+      "Usamos 'm'",
+      "Usamos 'n'"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "A palavra 'Sol' é classificada como:",
+    "o": [
+      "Monossílaba",
+      "Dissílaba"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras tem acento circunflexo?",
+    "o": [
+      "Pêssego",
+      "Maçã"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual o plural de 'Pão'?",
+    "o": [
+      "Pães",
+      "Pãos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o feminino de 'Padrinho'?",
+    "o": [
+      "Madrinha",
+      "Mãe"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O nome 'Porto' refere-se a uma cidade, logo é:",
+    "o": [
+      "Nome Próprio",
+      "Nome Comum"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O coletivo de 'Livros' é:",
+    "o": [
+      "Biblioteca",
+      "Pinacoteca"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se escreve a palavra que usamos para temperar a comida?",
+    "o": [
+      "Açúcar",
+      "Asúcar"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual a escrita correta da ave?",
+    "o": [
+      "Águia",
+      "Agia"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Em qual destas palavras o 'x' soa como 'ch'?",
+    "o": [
+      "Peixe",
+      "Próximo",
+      "Texto"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o grupo consonântico correto para 'fruta'?",
+    "o": [
+      "fr",
+      "fl",
+      "gr"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como escrevemos o som nasal na palavra 'Cinto'?",
+    "o": [
+      "com 'in'",
+      "com 'im'"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "A palavra 'Hipopótamo' tem 5 sílabas. Ela é:",
+    "o": [
+      "Polissílaba",
+      "Trissílaba"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual o nome do sinal (ç)?",
+    "o": [
+      "Cedilha",
+      "Til"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual acento usamos para o som aberto em 'Pé'?",
+    "o": [
+      "Acento agudo (´)",
+      "Acento circunflexo (^)"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Quantas sílabas tem a palavra 'Ar'?",
+    "o": [
+      "Uma (Monossílaba)",
+      "Duas (Dissílaba)"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras é um nome próprio de um país?",
+    "o": [
+      "Portugal",
+      "País",
+      "Europa"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O coletivo de 'Ovelhas' é:",
+    "o": [
+      "Rebanho",
+      "Matilha"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o feminino de 'Doutor'?",
+    "o": [
+      "Doutora",
+      "Doutriz"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se escreve o plural de 'Nariz'?",
+    "o": [
+      "Narizes",
+      "Narizs"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual o masculino de 'Égua'?",
+    "o": [
+      "Cavalo",
+      "Boi"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se forma o plural de 'Jardim'?",
+    "o": [
+      "Jardins",
+      "Jardims"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Na frase 'A Maria corre', 'Maria' é um nome:",
+    "o": [
+      "Próprio",
+      "Comum"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o coletivo de 'Cães'?",
+    "o": [
+      "Matilha",
+      "Alcateia"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O plural de 'Mão' é:",
+    "o": [
+      "Mãos",
+      "Mães"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "A palavra 'Pincel' termina em 'l'. Qual o seu plural?",
+    "o": [
+      "Pincéis",
+      "Pincels"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é a letra que usamos antes de 'e' ou 'i' para o som 'ss'?",
+    "o": [
+      "A letra 'c'",
+      "A letra 'q'"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se escreve a palavra para apagar o fogo?",
+    "o": [
+      "Extintor",
+      "Estintor"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras tem o som 'lh'?",
+    "o": [
+      "Coelho",
+      "Coelo"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se escreve corretamente?",
+    "o": [
+      "Bochecha",
+      "Boxexa"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como escrevemos o som nasal em 'Bomba'?",
+    "o": [
+      "com 'm'",
+      "com 'n'"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "A palavra 'Jacaré' tem 3 sílabas. Ela é:",
+    "o": [
+      "Trissílaba",
+      "Dissílaba"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual acento usamos em 'Vovó' (som aberto)?",
+    "o": [
+      "Acento agudo (´)",
+      "Acento circunflexo (^)"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Quantas sílabas tem a palavra 'Comboio'?",
+    "o": [
+      "3 (Trissílaba)",
+      "4 (Polissílaba)"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Lisboa é um nome próprio porque indica:",
+    "o": [
+      "Uma cidade específica",
+      "Um objeto comum"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O coletivo de 'Jogadores' é:",
+    "o": [
+      "Equipa",
+      "Turma"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o feminino de 'Pai'?",
+    "o": [
+      "Mãe",
+      "Titio"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se escreve o plural de 'Lençol'?",
+    "o": [
+      "Lençóis",
+      "Lençols"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual o masculino de 'Rainha'?",
+    "o": [
+      "Rei",
+      "Príncipe"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o plural de 'Botão'?",
+    "o": [
+      "Botões",
+      "Botãos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como chamamos a um conjunto de aviões?",
+    "o": [
+      "Esquadrilha",
+      "Frota"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O masculino de 'Atriz' é:",
+    "o": [
+      "Ator",
+      "Artista"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Como se forma o plural de 'Nuvem'?",
+    "o": [
+      "Nuvens",
+      "Nuvems"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Na palavra 'Menino', a sílaba tónica é 'ni'. Como se chamam as outras sílabas?",
+    "o": [
+      "Átonas",
+      "Tónicas"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é a sílaba tónica da palavra 'Rápido'?",
+    "o": [
+      "Rá",
+      "pi",
+      "do"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Na palavra 'Estrela', qual é a sílaba tónica?",
+    "o": [
+      "Es",
+      "tre",
+      "la"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Quantas sílabas átonas tem a palavra 'Café'?",
+    "o": [
+      "Uma ('ca')",
+      "Duas"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Identifica a sílaba tónica da palavra 'Escola':",
+    "o": [
+      "Es",
+      "co",
+      "la"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual destas palavras tem a sílaba tónica na última sílaba?",
+    "o": [
+      "Anzol",
+      "Livro",
+      "Lápis"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Na palavra 'Sábado', a sílaba tónica é 'Sá'. As sílabas 'ba' e 'do' são:",
+    "o": [
+      "Átonas",
+      "Tónicas"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é a sílaba tónica de 'Coração'?",
+    "o": [
+      "Co",
+      "ra",
+      "ção"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Na palavra 'Janela', a sílaba tónica é:",
+    "o": [
+      "Ja",
+      "ne",
+      "la"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "As sílabas de uma palavra que não são tónicas chamam-se:",
+    "o": [
+      "Átonas",
+      "Fracas"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Em 'Porto', a sílaba tónica é 'Por'. Ela é a:",
+    "o": [
+      "Penúltima sílaba",
+      "Última sílaba"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é a sílaba tónica de 'Jacaré'?",
+    "o": [
+      "Ja",
+      "ca",
+      "ré"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Bento tinha 5 jogos de videogame e, após o seu aniversário, passou a ter o triplo dessa quantidade. Quantos jogos ele tem agora?",
+    "o": [
+      "10 jogos",
+      "15 jogos",
+      "8 jogos",
+      "20 jogos"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Se Bento tinha 5 jogos e agora possui 15, quantos jogos ele ganhou de presente no seu aniversário?",
+    "o": [
+      "5 jogos",
+      "15 jogos",
+      "10 jogos",
+      "3 jogos"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Bento quer organizar seus 15 jogos em 3 prateleiras de forma igual. Quantos jogos ficarão em cada prateleira?",
+    "o": [
+      "5 jogos",
+      "4 jogos",
+      "6 jogos",
+      "10 jogos"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é o resultado da soma entre a quantidade inicial de jogos de Bento (5) e a quantidade atual (15)?",
+    "o": [
+      "10",
+      "25",
+      "20",
+      "30"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Na frase 'Bento tinha 5 jogos', a palavra 'Bento' começa com letra maiúscula por qual motivo?",
+    "o": [
+      "É um substantivo comum",
+      "É um nome próprio",
+      "É uma cor",
+      "É um objeto"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Assinale a alternativa em que a palavra 'aniversário' está separada corretamente em sílabas:",
+    "o": [
+      "a-ni-ver-sá-rio",
+      "an-i-ver-sá-ri-o",
+      "a-ni-ver-sár-io",
+      "a-niv-er-sá-rio"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O aniversário é uma data que celebra o nascimento de uma pessoa. Esse evento faz parte de qual documento pessoal?",
+    "o": [
+      "Título de eleitor",
+      "Certidão de Nascimento",
+      "Carteira de vacinação",
+      "Caderno escolar"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Jogos de videogame precisam de energia elétrica para funcionar. Qual destas é uma atitude correta para economizar energia?",
+    "o": [
+      "Deixar o videogame ligado a noite toda",
+      "Brincar com luzes acesas durante o dia",
+      "Desligar os aparelhos quando não estiver usando",
+      "Manter a TV ligada sem ninguém assistir"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "estudo"
+  }
 ]
