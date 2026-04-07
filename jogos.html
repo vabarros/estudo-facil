@@ -53,7 +53,7 @@
 
             <div class="card-jogo">
                 <div class="img-preview img-angry"></div>
-                <h3>ANGRY BIRDS</h3>
+                <h3>FLY BIRDS</h3>
                 <div class="badge-custo">🪙 1 CRÉDITO</div>
                 <button class="btn-play" onclick="abrirJogo('angry')">JOGAR</button>
             </div>
@@ -72,31 +72,51 @@
             document.getElementById('contador-creditos').innerText = progresso.carteira.creditos;
         }
 
+        let timerJogo;
+
         function abrirJogo(tipo) {
             if (gastarCreditoParaJogar()) {
                 const overlay = document.getElementById('game-overlay');
                 const frame = document.getElementById('game-frame');
                 
                 const links = {
-                    'subway': 'https://vabarros.github.io/subway-surfers-html5/', 
-                    'angry': 'https://vabarros.github.io/angry-birds-html5/'
-                };
+                    // Aponta para o ficheiro index.html que está dentro da pasta do jogo no TEU projeto
+                    'subway': 'arcade/subway/index.html', 
+                    'angry': 'arcade/flybird/index.html'
+};
 
                 frame.src = links[tipo];
                 overlay.style.display = 'block';
                 atualizarMoedasLocal();
+
+                // --- NOVO: Inicia contagem regressiva (ex: 10 minutos) ---
+                clearTimeout(timerJogo);
+                timerJogo = setTimeout(() => {
+                    alert("⏰ O teu tempo acabou! Estuda mais um pouco para ganhar outro crédito.");
+                    fecharJogo();
+                }, 10 * 60 * 1000); // 10 minutos em milissegundos
             } else {
-                alert("🛑 SEM CRÉDITOS!\n\nPrecisas de nota 8/10 ou superior nos exercícios para ganhar moedas.");
+                alert("🛑 SEM CRÉDITOS!");
             }
         }
 
         function fecharJogo() {
-            if(confirm("Se saíres agora, terás de gastar outro crédito para jogar novamente. Sair?")) {
-                location.reload();
-            }
-        }
+            const overlay = document.getElementById('game-overlay');
+            const frame = document.getElementById('game-frame');
+            
+            // Para o jogo completamente limpando a URL
+            frame.src = ""; 
+            overlay.style.display = 'none';
+            
+            // Limpa o cronómetro se ele sair antes do tempo
+            clearTimeout(timerJogo);
+            
+            // Força a atualização da tela para mostrar que o crédito foi gasto
+            location.reload(); 
+}
 
         window.onload = atualizarMoedasLocal;
     </script>
 </body>
 </html>
+

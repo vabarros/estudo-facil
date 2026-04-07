@@ -30,10 +30,19 @@ let perguntasFeitasIds = [];
 function renderizarQuestao() {
     const zona = document.getElementById('zona-pergunta');
     
-    if (indiceAtual >= perguntasAtuais.length) {
-        finalizarSessao();
-        return;
+    if (notaFinal >= 8) {
+    // 1. Verifica se ele já tem o máximo permitido
+    if (progresso.carteira.creditos < 3) {
+        progresso.carteira.creditos += 1; // Soma +1 em vez de definir como 1
+        console.log("Crédito adicionado! Total: " + progresso.carteira.creditos);
+    } else {
+        console.log("Limite de 3 créditos atingido.");
+        // Opcional: Avisar o aluno que ele precisa gastar os créditos no Arcade
     }
+    
+    // Salva a alteração
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+}
 
     const item = perguntasAtuais[indiceAtual];
     
