@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "q": "Maria tinha 20 maçãs e comeu 3. Com quantas maçãs ela ficou?",
+    "o": [
+      "15 maçãs",
+      "17 maçãs",
+      "23 maçãs",
+      "20 maçãs"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Se Maria tivesse o dobro das 20 maçãs iniciais, quantas maçãs ela teria?",
+    "o": [
+      "10",
+      "30",
+      "40",
+      "50"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Maria começou com 20 maçãs. Qual é a decomposição do número 20 em dezenas?",
+    "o": [
+      "1 dezena",
+      "2 dezenas",
+      "3 dezenas",
+      "20 dezenas"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Maria tinha 20 maçãs e comeu 3. Qual operação resolve esta situação?",
+    "o": [
+      "20 + 3",
+      "20 x 3",
+      "20 - 3",
+      "20 / 3"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Na frase 'Maria tinha 20 maçãs', qual é o substantivo próprio?",
+    "o": [
+      "Maria",
+      "tinha",
+      "maçãs",
+      "vinte"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Qual é o antônimo de 'comeu' no contexto de possuir algo?",
+    "o": [
+      "Perdeu",
+      "Guardou",
+      "Ficou",
+      "Jejuou"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "A maçã é o fruto de uma árvore. Como se chama a árvore que dá maçãs?",
+    "o": [
+      "Pereira",
+      "Macieira",
+      "Laranjeira",
+      "Bananeira"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "As maçãs são alimentos que pertencem a qual grupo para uma vida saudável?",
+    "o": [
+      "Doces e guloseimas",
+      "Frutas e vegetais",
+      "Carnes e peixes",
+      "Laticínios"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "estudo"
+  }
+]
