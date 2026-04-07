@@ -1,6 +1,8 @@
 // CONFIGURAÇÕES GLOBAIS DA NUVEM
 window.bancoDeDados = []; 
-const URL_DADOS = '/estudo-facil/data/questoes.json';
+const URL_DADOS = window.location.hostname.includes("github.io") 
+    ? '/estudo-facil/data/questoes.json' 
+    : 'data/questoes.json';
 
 // Carrega os dados assim que o arquivo é lido
 async function carregarDadosDaNuvem() {
