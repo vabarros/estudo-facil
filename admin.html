@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gerador & Injetor Cloud</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; background: #f0f2f5; color: #333; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2, h4 { margin-top: 0; color: #1a73e8; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        textarea { height: 150px; }
+        .btn { background: #1a73e8; color: white; border: none; padding: 14px; border-radius: 6px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background: #1557b0; }
+        .btn-copy { background: #6c757d; margin-bottom: 10px; }
+        .btn-copy:hover { background: #5a6268; }
+        #feedback { margin-top: 15px; padding: 12px; border-radius: 6px; text-align: center; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+    <h2>🛠️ Painel de Controlo do Jogo</h2>
+
+    <div class="card">
+        <h4>Passo 1: Gerar Prompt para o Gemini</h4>
+        <textarea id="texto-livro" placeholder="Cola aqui o texto do livro escolar..."></textarea>
+        <button class="btn btn-copy" onclick="copiarPrompt()">📋 Copiar Prompt Completo</button>
+        <p style="font-size: 12px; color: #666;">Clica no botão, cola no Gemini e volta com o JSON.</p>
+    </div>
+
+    <div class="card" style="background: #e8f0fe;">
+        <h4>Passo 2: Configuração GitHub</h4>
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="gh-user" placeholder="Usuário GitHub" value="vabarros">
+            <input type="text" id="gh-repo" placeholder="Repositório" value="estudo-facil">
+        </div>
+        <input type="password" id="gh-token" placeholder="Cola o teu Personal Access Token aqui">
+    </div>
+
+    <div class="card">
+        <h4>Passo 3: Injetar no Dispositivo (Cloud)</h4>
+        <textarea id="json-input" placeholder="Cola aqui o JSON gerado pelo Gemini..."></textarea>
+        <button class="btn" onclick="enviarParaGithub()">🚀 Sincronizar com a Nuvem</button>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        const PROMPT_BASE = `Aja como um ENGENHEIRO DE CONTEÚDO DIDÁTICO para o 2º ANO.
+OBJETIVO: Gerar EXATAMENTE 8 exercícios JSON baseados no texto fornecido.
+
+LISTA NEGRA (PROIBIÇÃO ABSOLUTA - NÃO USE):
+- "De acordo com o texto"
+- "No texto" ou "Segundo a história"
+- "A personagem" ou "O problema quer saber"
+- "Qual é a pergunta principal"
+
+REGRAS DE OURO (SIGA RIGOROSAMENTE):
+1. AUTOSSUFICIÊNCIA: Cada pergunta "q" deve conter os dados necessários para ser resolvida sozinha. 
+   - EX: "A Mónica tem 26 alunos na turma A e 25 na turma B. Quantos alunos vão ao teatro?"
+2. FIDELIDADE AOS DADOS: Use EXATAMENTE os nomes (ex: Mónica, Marta) e os números (ex: 26, 47, 39) presentes no texto. Não invente novos valores.
+3. FORMATAÇÃO TÉCNICA:
+   - Resposta APENAS em array JSON [].
+   - Campos: "q", "o", "r", "tipo", "materia".
+   - "r": Deve ser sempre um NÚMERO (índice da opção ou valor do input).
+4. MATÉRIAS PERMITIDAS: 'portugues', 'matematica', 'estudo'.
+
+DISTRIBUIÇÃO SUGERIDA:
+- 4 de Matemática (Problemas e contas do texto).
+- 2 de Português (Gramática e ortografia usando frases do texto).
+- 2 de Estudo do Meio (Temas transversais como escola, família ou ambiente).
+
+CONTEÚDO PARA CONVERTER:
+${texto}`;
+
+
+        function copiarPrompt() {
+            const texto = document.getElementById('texto-livro').value;
+            if(!texto) return alert("Cola o texto do livro primeiro!");
+            
+            const promptFinal = PROMPT_BASE + texto;
+            navigator.clipboard.writeText(promptFinal);
+            
+            alert("Prompt copiado! Agora cola no Gemini.");
+        }
+
+        async function enviarParaGithub() {
+            const user = document.getElementById('gh-user').value;
+            const repo = document.getElementById('gh-repo').value;
+            const token = document.getElementById('gh-token').value;
+            const inputRaw = document.getElementById('json-input').value;
+            const feedback = document.getElementById('feedback');
+            const PATH = 'data/questoes.json';
+
+            feedback.style.display = "block";
+            feedback.style.background = "#fff3cd";
+            feedback.innerHTML = "⏳ A processar...";
+
+            try {
+                let novasPerguntas = JSON.parse(inputRaw.replace(/```json/g, "").replace(/```/g, "").trim());
+                
+                // Normalização
+                novasPerguntas = novasPerguntas.map(item => {
+                    if (item.tipo.includes("escolha")) item.tipo = "opcao";
+                    item.r = Number(item.r);
+                    return item;
+                });
+
+                const resGet = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${PATH}`, {
+                    headers: { 'Authorization': `token ${token}` }
+                });
+
+                const fileData = await resGet.json();
+                const sha = fileData.sha;
+                const conteudoAntigo = JSON.parse(decodeURIComponent(escape(atob(fileData.content))));
+
+                const jsonFinal = JSON.stringify([...conteudoAntigo, ...novasPerguntas], null, 2);
+                const conteudoBase64 = btoa(unescape(encodeURIComponent(jsonFinal)));
+
+                const resPut = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${PATH}`, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: `📦 +${novasPerguntas.length} missões`,
+                        content: conteudoBase64,
+                        sha: sha
+                    })
+                });
+
+                if (resPut.ok) {
+                    feedback.style.background = "#d4edda";
+                    feedback.innerHTML = "✅ SUCESSO! O jogo foi atualizado.";
+                    document.getElementById('json-input').value = "";
+                } else { throw new Error("Erro no Push."); }
+
+            } catch (e) {
+                feedback.style.background = "#f8d7da";
+                feedback.innerHTML = "❌ ERRO: " + e.message;
+            }
+        }
+    </script>
+</body>
+</html>

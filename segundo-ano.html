@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia do 2º Ano - Portugal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>🌟 Missão de Estudo: Segundo Ano 🌟</h1>
+    <p>Conteúdos das Avaliações</p>
+
+    <a href="desafio.html" style="text-decoration:none;">
+        <div class="missao">🚀 DESAFIO DIÁRIO MISTO</div>
+    </a>
+
+    <div class="menu">
+        <a href="materias/portugues.html" style="text-decoration:none;">
+            <div class="card pt"><span>📚</span>Português</div>
+        </a>
+        <a href="materias/matematica.html" style="text-decoration:none;">
+            <div class="card mat"><span>🔢</span>Matemática</div>
+        </a>
+        <a href="materias/ordemMatematica.html" style="text-decoration:none;">
+            <div class="card mat"><span>🔢</span>Ordenação Matemática</div>
+        </a>
+        <a href="materias/estudo.html" style="text-decoration:none;">
+            <div class="card est"><span>🌍</span>Estudo do Meio</div>
+        </a>
+    </div>
+    <br>
+    <a href="index.html" style="text-decoration: none; color: #7f8c8d; font-size: 0.9rem;">
+        ⬅ Escolher outro ano escolar
+    </a>
+    <div id="panorama">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>📊 O Teu Progresso</h3>
+            <button onclick="resetarProgresso()" class="btn-reset">Limpar Dados</button>
+        </div>
+        <p><small>Vê como estão as tuas missões em cada matéria</small></p>
+        
+        <div id="status-container">
+            </div>
+    </div>
+
+    <script src="js/exercicios.js"></script>
+    <script src="js/progresso.js"></script>
+</body>
+
+</html>
