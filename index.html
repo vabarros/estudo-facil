@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia do 2º Ano - Portugal</title>
+    <title>Estudo Fácil - Selecione o Ano</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+<body style="background-color: #f0f4f8;">
 
-<body>
+    <header style="margin-top: 50px;">
+        <h1>🚀 Bem-vindo ao Estudo Fácil!</h1>
+        <p>Escolha o seu ano escolar para começar a missão:</p>
+    </header>
 
-    <h1>🌟 Missão de Estudo: 1º Semestre 🌟</h1>
-    <p>Conteúdos das Avaliações Finais Semestrais</p>
+    <div class="menu" style="margin-top: 40px;">
+        <div class="card mat" onclick="window.location.href='segundo-ano.html'" style="width: 250px; height: 150px; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <span style="font-size: 3rem;">2º</span>
+                <p style="margin-top: 10px;">ANO LETIVO</p>
+            </div>
+        </div>
+        
+        <div class="card" style="width: 250px; height: 150px; background: #ddd; cursor: not-allowed; opacity: 0.6; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <span style="font-size: 3rem;">3º</span>
+                <p>EM BREVE</p>
+            </div>
+        </div>
 
-    <a href="desafio.html" style="text-decoration:none;">
-        <div class="missao">🚀 DESAFIO DIÁRIO MISTO</div>
-    </a>
-
-    <div class="menu">
-        <a href="materias/portugues.html" style="text-decoration:none;">
-            <div class="card pt"><span>📚</span>Português</div>
-        </a>
-        <a href="materias/matematica.html" style="text-decoration:none;">
-            <div class="card mat"><span>🔢</span>Matemática</div>
-        </a>
-        <a href="materias/ordemMatematica.html" style="text-decoration:none;">
-            <div class="card mat"><span>🔢</span>Ordenação Matemática</div>
-        </a>
-        <a href="materias/estudo.html" style="text-decoration:none;">
-            <div class="card est"><span>🌍</span>Estudo do Meio</div>
-        </a>
+        <div class="card" onclick="window.location.href='materias/tabuada.html'" style="width: 250px; height: 150px; background: #ddd; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <span style="font-size: 3rem;">Tabuada</span>
+            </div>
+        </div>
     </div>
 
-    <div id="panorama">
-        <h3>📊 Panorama de Aprendizagem</h3>
-        <p><small>Análise de onde deves focar mais o teu estudo</small></p>
-        <div id="status">A carregar dados...</div>
-        <button onclick="resetarProgresso()" style="margin-top:10px; font-size:10px;">Resetar Progresso</button>
-    </div>
-
-    <script src="js/exercicios.js"></script>
-    <script src="js/progresso.js"></script>
 </body>
-
 </html>

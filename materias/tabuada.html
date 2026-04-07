@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background: #CFE2F3;">
+
+    <h1>🔢 Treinamento de tabuada</h1>
+
+    
+
+    <div id="menu-treino">
+        <p>Escolha a tabuada que deseja treinar:</p>
+        <div class="card-pergunta" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(2)">2</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(3)">3</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(4)">4</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(5)">5</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(6)">6</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(7)">7</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(8)">8</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(9)">9</button>
+            <button class="btn-opcao" onclick="iniciarTabuadaDinamica(10)">10</button>
+        </div>
+    </div>
+
+    <div id="zona-pergunta" style="display:none;"></div>
+
+    <br>
+    <a href="../index.html" id="link-voltar" style="text-decoration:none; font-weight:bold; color:#2c3e50;">⬅ Voltar ao Início</a>
+
+    <div id="panorama" style="margin-bottom: 30px; padding: 15px; background: white; border-radius: 15px;">
+        <h3 style="margin-top: 0;">📊 Teu Progresso nas Tabuadas</h3>
+        <button onclick="resetarProgresso()" class="btn-reset">Limpar Dados</button>
+        <div id="status-tabuadas">A carregar progresso...</div>
+    </div>
+
+    <script src="../js/exercicios.js"></script>
+    <script src="../js/progresso.js"></script>
+    <script>
+        // Carrega o gráfico de tabuadas assim que a página abrir
+        window.onload = atualizarPanoramaTabuadas;
+    </script>
+</body>
+</html>
+

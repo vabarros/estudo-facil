@@ -125,3 +125,51 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
     box-shadow: 0 4px 0 #c29921;
 }
 .tema-portugues .btn-opcao:active { box-shadow: 0 0 0 #c29921; }
+
+#panorama {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--sombra-leve);
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+.materia-progresso {
+    margin-bottom: 20px;
+}
+
+.label-progresso {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Fundo da barra */
+.barra-fundo {
+    background-color: #eee;
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* A parte colorida que enche */
+.barra-preenchida {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-in-out; /* Animação ao carregar */
+}
+
+.btn-reset {
+    background: none;
+    border: 1px solid #ccc;
+    color: #999;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+.btn-reset:hover { background: #fee; color: #e74c3c; }

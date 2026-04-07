@@ -2,16 +2,6 @@ let progresso = JSON.parse(localStorage.getItem('estudoApp')) || {
     portugues: { acertos: 0, total: 0 },
     matematica: { acertos: 0, total: 0 },
     estudoMeio: { acertos: 0, total: 0 },
-    // Inicializa as tabuadas de 2 a 10 se não existirem
-    tabuada2: { acertos: 0, total: 0 },
-    tabuada3: { acertos: 0, total: 0 },
-    tabuada4: { acertos: 0, total: 0 },
-    tabuada5: { acertos: 0, total: 0 },
-    tabuada6: { acertos: 0, total: 0 },
-    tabuada7: { acertos: 0, total: 0 },
-    tabuada8: { acertos: 0, total: 0 },
-    tabuada9: { acertos: 0, total: 0 },
-    tabuada10: { acertos: 0, total: 0 }
 };
 
 let perguntasAtuais = [];
@@ -76,7 +66,30 @@ function renderizarQuestao() {
         }, 100);
     }
 }
-/* --- FUNÇÕES DE VERIFICAÇÃO --- */
+
+function treinar(materia) {
+    // 1. Pega as perguntas fixas do bancoDados
+    let perguntasDaMateria = [...(bancoDados[materia] || [])];
+
+    // 2. Busca perguntas EXTRAS do admin (se existirem)
+    const extrasRaw = localStorage.getItem('estudo_extras');
+    if (extrasRaw) {
+        const extras = JSON.parse(extrasRaw);
+        // Filtra para pegar apenas as perguntas da matéria selecionada
+        const filtradas = extras.filter(p => p.materia === materia);
+        perguntasDaMateria = perguntasDaMateria.concat(filtradas);
+    }
+
+    if (perguntasDaMateria.length === 0) {
+        alert("Ainda não há perguntas para esta matéria!");
+        return;
+    }
+
+    // 3. O resto da lógica continua igual (shuffle, slice, etc)
+    perguntasAtuais = shuffle(perguntasDaMateria).slice(0, 10);
+    indiceAtual = 0;
+    // ... chama renderizarQuestao()
+}
 
 // 1. Para Português e Estudo do Meio (Botões de Opção)
 function verificarResposta(escolha) {
@@ -91,7 +104,7 @@ function verificarResposta(escolha) {
 
     if (acertou) {
         mostrarFeedback("✅ CORRETO!", "sucesso");
-        setTimeout(proximaQuestao, 2000);
+        setTimeout(proximaQuestao, 1000);
     } else {
         // Mostra qual era a opção correta (texto)
         const respostaCerta = item.o[item.r];
@@ -99,7 +112,7 @@ function verificarResposta(escolha) {
     }
 }
 
-// 2. Para Matemática e Tabuadas (Caixa de Texto / Input)
+// 2. Para Matemática (Caixa de Texto / Input)
 function verificarRespostaInput() {
     const input = document.getElementById('resposta-user');
     if (!input) return;
@@ -120,28 +133,9 @@ function verificarRespostaInput() {
         const btn = document.querySelector('.input-container .missao');
         if(btn) btn.disabled = true;
         
-        setTimeout(proximaQuestao, 2000);
+        setTimeout(proximaQuestao, 1000);
     } else {
         mostrarFeedback(`❌ Errado! Era ${item.r}`, "erro", true);
-    }
-}
-
-// 3. A Função Mestre (O "Cérebro" que salva tudo)
-function registrarResultado(acertou, materia) {
-    if (!progresso[materia]) {
-        progresso[materia] = { acertos: 0, total: 0 };
-    }
-
-    if (acertou) {
-        progresso[materia].acertos++;
-    }
-    progresso[materia].total++;
-
-    localStorage.setItem('estudoApp', JSON.stringify(progresso));
-    
-    // Se estiver na index, atualiza o gráfico/tabela na hora
-    if (typeof atualizarPanorama === "function") {
-        atualizarPanorama();
     }
 }
 
@@ -182,21 +176,20 @@ function mostrarFeedback(mensagem, tipo, persistente = false) {
     }
 }
 function registrarResultado(acertou, materia) {
-    // 1. Garantia: se a matéria não existe no progresso (ex: uma tabuada nova), cria agora
+
     if (!progresso[materia]) {
         progresso[materia] = { acertos: 0, total: 0 };
     }
 
-    // 2. Soma os pontos
     if (acertou) {
         progresso[materia].acertos++;
     }
     progresso[materia].total++;
 
-    // 3. Salva no computador do utilizador
+
     localStorage.setItem('estudoApp', JSON.stringify(progresso));
     
-    // 4. Atualiza o panorama visual se ele existir na página
+
     if (typeof atualizarPanorama === "function") atualizarPanorama();
 }
 function proximaQuestao() {
@@ -205,7 +198,7 @@ function proximaQuestao() {
         document.activeElement.blur();
     }
     
-    // 2. Pequena limpeza visual no container antes de renderizar
+
     const zona = document.getElementById('zona-pergunta');
     if(zona) zona.focus(); // Move o foco para a área geral, longe dos botões
 
@@ -233,7 +226,7 @@ function iniciarDesafio() {
     let poolDesafio = [];
 
     // Lista todas as matérias que entram no desafio
-    const materias = ['portugues', 'matematica', 'estudoMeio', 'tabuada2', 'tabuada3', 'tabuada4', 'tabuada5'];
+    const materias = ['portugues', 'matematica', 'estudoMeio'];
 
     materias.forEach(m => {
         if (bancoDados[m]) {
@@ -248,16 +241,34 @@ function iniciarDesafio() {
 
 function finalizarSessao() {
     const zona = document.getElementById('zona-pergunta');
-    if(typeof atualizarPanorama === "function") atualizarPanorama();
-    
-    zona.innerHTML = `
-        <div class="card-pergunta">
-            <h2>🎉 Sessão Terminada!</h2>
-            <p>Concluíste esta missão!</p>
-            <button class="missao" onclick="location.reload()">🔄 Escolher Outra Matéria</button>
-            <button class="missao" style="background:#636e72" onclick="window.location.href='../index.html'">🏠 Menu Principal</button>
-        </div>
-    `;
+    const menuTreino = document.getElementById('menu-treino');
+    const panorama = document.getElementById('panorama');
+
+    // Se a matéria ativa começar com "tabuada", usamos o fluxo de retorno local
+    if (materiaAtiva.startsWith('tabuada')) {
+        zona.innerHTML = `
+            <div class="card-pergunta">
+                <h2 style="color: #2ecc71;">🌟 Parabéns!</h2>
+                <p>Completaste a ${materiaAtiva.replace('tabuada', 'Tabuada do ')} com sucesso!</p>
+                <div class="opcoes-container">
+                    <button class="missao" onclick="voltarSelecaoTabuada()">Treinar outra Tabuada</button>
+                </div>
+            </div>
+        `;
+        
+        // Atualiza o gráfico de tabuadas que está no topo da página
+        if (typeof atualizarPanoramaTabuadas === "function") {
+            atualizarPanoramaTabuadas();
+        }
+    } else {
+        // Fluxo normal para outras matérias (Português, etc)
+        zona.innerHTML = `
+            <div class="card-pergunta">
+                <h2>Missão Concluída!</h2>
+                <button class="missao" onclick="location.reload()">Voltar</button>
+            </div>
+        `;
+    }
 }
 
 function shuffle(array) {
@@ -266,19 +277,44 @@ function shuffle(array) {
 
 // Atualiza o ecrã inicial
 function atualizarPanorama() {
-    const status = document.getElementById('status');
-    if(!status) return;
-    
-    let html = "<h3> O teu Panorama de Foco:</h3>";
-    for (let m in progresso) {
-        let percent = progresso[m].total > 0 ? Math.round((progresso[m].acertos / progresso[m].total) * 100) : 0;
-        let cor = percent < 50 ? "#e74c3c" : "#2ecc71";
-        html += `<p><strong>${m.toUpperCase()}:</strong> ${percent}% de acerto (${progresso[m].acertos}/${progresso[m].total}) 
-                 <div style="background:#eee; height:10px; border-radius:5px;">
-                    <div style="background:${cor}; width:${percent}%; height:10px; border-radius:5px;"></div>
-                 </div></p>`;
+    const container = document.getElementById('status-container');
+    if (!container) return;
+
+    // Cores para as barras baseadas nas tuas variáveis
+    const cores = {
+        portugues: "#FFD966",
+        matematica: "#3498db",
+        estudo: "#78e08f",
+        tabuadas: "#ff7675"
+    };
+
+    container.innerHTML = ""; // Limpa o carregamento
+
+    // Se não houver progresso ainda
+    if (Object.keys(progresso).length === 0) {
+        container.innerHTML = "<p style='color:#999'>Faz a tua primeira missão para veres o progresso!</p>";
+        return;
     }
-    status.innerHTML = html;
+
+    for (const materia in progresso) {
+        const dados = progresso[materia];
+        const percentagem = Math.round((dados.acertos / dados.total) * 100) || 0;
+        const cor = cores[materia] || "#ccc";
+
+        container.innerHTML += `
+            <div class="materia-progresso">
+                <div class="label-progresso">
+                    <span>${materia.toUpperCase()}</span>
+                    <span>${percentagem}% (${dados.acertos}/${dados.total})</span>
+                </div>
+                <div class="barra-fundo">
+                    <div class="barra-preenchida" 
+                         style="width: ${percentagem}%; background-color: ${cor}; shadow: 0 0 5px ${cor}">
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 }
 
 function resetarProgresso() {
@@ -296,6 +332,89 @@ function resetarProgresso() {
         // Força a atualização visual e da memória
         atualizarPanorama();
         location.reload(); 
+    }
+}
+
+function iniciarTabuadaDinamica(numero) {
+    materiaAtiva = `tabuada${numero}`;
+    indiceAtual = 0;
+    perguntasAtuais = [];
+
+    // Gerar de 0 a 10 de forma sequencial
+    for (let i = 0; i <= 10; i++) {
+        perguntasAtuais.push({
+            q: `${numero} x ${i} = ?`,
+            r: numero * i,
+            tipo: "input",
+            materia: `tabuada${numero}`
+        });
+    }
+
+    // Gerir interface
+    document.getElementById('menu-treino').style.display = 'none';
+    const zona = document.getElementById('zona-pergunta');
+    zona.style.display = 'block';
+
+    // Ajustar o botão Voltar para resetar a tabuada
+    const btnVoltar = document.getElementById('link-voltar');
+    if (btnVoltar) {
+        btnVoltar.innerHTML = "⬅ Escolher outra Tabuada";
+        btnVoltar.href = "#";
+        btnVoltar.onclick = (e) => { e.preventDefault(); location.reload(); };
+    }
+
+    renderizarQuestao();
+}
+
+// --- PANORAMA FILTRADO (SÓ TABUADAS) ---
+function atualizarPanoramaTabuadas() {
+    const container = document.getElementById('status-tabuadas');
+    if (!container) return;
+
+    container.innerHTML = "";
+    
+    // Filtramos o progresso para pegar apenas as chaves que começam com "tabuada"
+    const tabuadasSalvas = Object.keys(progresso).filter(key => key.startsWith('tabuada'));
+
+    if (tabuadasSalvas.length === 0) {
+        container.innerHTML = "<p style='color:#7f8c8d; font-size: 0.9rem;'>Ainda não treinaste nenhuma tabuada.</p>";
+        return;
+    }
+
+    tabuadasSalvas.forEach(key => {
+        const dados = progresso[key];
+        const numTabuada = key.replace('tabuada', '');
+        const percentagem = Math.round((dados.acertos / dados.total) * 100) || 0;
+
+        container.innerHTML += `
+            <div class="materia-progresso">
+                <div class="label-progresso">
+                    <span>TABUADA DO ${numTabuada}</span>
+                    <span>${percentagem}%</span>
+                </div>
+                <div class="barra-fundo">
+                    <div class="barra-preenchida" style="width: ${percentagem}%; background-color: #ff7675;"></div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function voltarSelecaoTabuada() {
+    const zona = document.getElementById('zona-pergunta');
+    const menuTreino = document.getElementById('menu-treino');
+    const btnVoltar = document.getElementById('link-voltar');
+
+    // Esconde a zona de perguntas e mostra o menu de números
+    zona.style.display = 'none';
+    zona.innerHTML = '';
+    menuTreino.style.display = 'block';
+
+    // Restaura o botão "Voltar ao Início" original
+    if (btnVoltar) {
+        btnVoltar.innerHTML = "⬅ Voltar ao Início";
+        btnVoltar.onclick = null; // Remove o preventDefault se existir
+        btnVoltar.href = "../index.html"; 
     }
 }
 
