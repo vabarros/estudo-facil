@@ -1,7 +1,6 @@
 // CONFIGURAÇÕES GLOBAIS DA NUVEM
 window.bancoDeDados = []; 
-
-const URL_DADOS = 'data/questoes.json';
+const URL_DADOS = '/estudo-facil/data/questoes.json';
 
 // Carrega os dados assim que o arquivo é lido
 async function carregarDadosDaNuvem() {
