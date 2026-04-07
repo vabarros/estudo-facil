@@ -173,3 +173,4 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
     padding: 2px 5px;
 }
 .btn-reset:hover { background: #fee; color: #e74c3c; }
+ 
