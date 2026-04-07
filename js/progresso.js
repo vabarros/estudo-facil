@@ -72,19 +72,21 @@ function verificarResposta(escolha) {
     const item = perguntasAtuais[indiceAtual];
     const acertou = escolha === item.r;
     
-    // Bloqueia cliques repetidos nos botões
-    document.querySelectorAll('.btn-opcao').forEach(b => b.disabled = true);
+    // NOVO: Soma o acerto para a nota final
+    if (acertou) {
+        acertosDestaSessao++;
+    }
 
-    // Usa a função mestre para salvar
+    document.querySelectorAll('.btn-opcao').forEach(b => b.disabled = true);
     registrarResultado(acertou, item.materia);
 
     if (acertou) {
         mostrarFeedback("✅ CORRETO!", "sucesso");
         setTimeout(proximaQuestao, 1000);
     } else {
-        // Mostra qual era a opção correta (texto)
         const respostaCerta = item.o[item.r];
         mostrarFeedback(`❌ A certa era: ${respostaCerta}`, "erro", true);
+        setTimeout(proximaQuestao, 2000); // Adicionado para avançar no erro
     }
 }
 
@@ -100,18 +102,24 @@ function verificarRespostaInput() {
 
     const acertou = parseInt(valor) === item.r;
     
-    // Usa a mesma função mestre para salvar
+    // NOVO: Soma o acerto para a nota final se estiver correto
+    if (acertou) {
+        acertosDestaSessao++; 
+    }
+
+    // Usa a mesma função mestre para salvar no histórico geral
     registrarResultado(acertou, item.materia);
 
     if (acertou) {
         mostrarFeedback("✅ CORRETO!", "sucesso");
-        // Desativa o botão para evitar múltiplos envios
         const btn = document.querySelector('.input-container .missao');
         if(btn) btn.disabled = true;
         
         setTimeout(proximaQuestao, 1000);
     } else {
         mostrarFeedback(`❌ Errado! Era ${item.r}`, "erro", true);
+        // Opcional: Avançar mesmo que erre após 2 segundos
+        setTimeout(proximaQuestao, 2000);
     }
 }
 
@@ -166,18 +174,22 @@ function registrarResultado(acertou, materia) {
     
     if (typeof atualizarPanorama === "function") atualizarPanorama();
 }
+
 function proximaQuestao() {
-    // 1. Força a saída do foco do botão atual
+    // Tira o foco de qualquer botão para evitar cliques acidentais
     if (document.activeElement instanceof HTMLElement) {
         document.activeElement.blur();
     }
-    
-
-    const zona = document.getElementById('zona-pergunta');
-    if(zona) zona.focus(); // Move o foco para a área geral, longe dos botões
 
     indiceAtual++;
-    renderizarQuestao();
+
+    // VERIFICAÇÃO CRUCIAL: Ainda há perguntas?
+    if (indiceAtual < perguntasAtuais.length) {
+        renderizarQuestao();
+    } else {
+        // Se não há mais perguntas, chama a função que dá os créditos!
+        finalizarSessao();
+    }
 }
 
 // Desafio Diário: 5 de cada sem repetir
