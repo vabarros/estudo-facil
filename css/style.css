@@ -266,6 +266,7 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
 .img-subway { background-image: url('../img/subway.png'); }
 .img-angry { background-image: url('../img/angry.png'); }
 .img-dynno { background-image: url('../img/dynno.png'); }
+.img-pacman { background-image: url('../img/pacman.png'); }
 
 .badge-custo {
     background: rgba(0,0,0,0.5);
@@ -277,3 +278,22 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
     font-size: 0.9rem;
     font-weight: bold;
 }
+.controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+button {
+    width: 80px;
+    height: 80px;
+    background: #0012f2;
+    color: white;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    touch-action: manipulation; /* Evita zoom acidental ao tocar rápido */
+}
+button:active { background: #ff0; color: #000; }
