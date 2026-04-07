@@ -1,8 +1,13 @@
+
 let progresso = JSON.parse(localStorage.getItem('estudoApp')) || {
     portugues: { acertos: 0, total: 0 },
     matematica: { acertos: 0, total: 0 },
     estudoMeio: { acertos: 0, total: 0 },
+    carteira: { creditos: 0, totalPartidas: 0 }, // Nova linha
+    personagens: 0 // Nova linha
 };
+
+let acertosDestaSessao = 0;
 
 let perguntasAtuais = [];
 let indiceAtual = 0;
@@ -152,20 +157,18 @@ function mostrarFeedback(mensagem, tipo, persistente = false) {
     }
 }
 function registrarResultado(acertou, materia) {
-
     if (!progresso[materia]) {
         progresso[materia] = { acertos: 0, total: 0 };
     }
 
     if (acertou) {
         progresso[materia].acertos++;
+        acertosDestaSessao++; // Soma o acerto para a rodada atual
     }
     progresso[materia].total++;
 
-
     localStorage.setItem('estudoApp', JSON.stringify(progresso));
     
-
     if (typeof atualizarPanorama === "function") atualizarPanorama();
 }
 function proximaQuestao() {
@@ -208,34 +211,42 @@ function iniciarDesafio() {
 
 function finalizarSessao() {
     const zona = document.getElementById('zona-pergunta');
-    const menuTreino = document.getElementById('menu-treino');
-    const panorama = document.getElementById('panorama');
-
-    // Se a matéria ativa começar com "tabuada", usamos o fluxo de retorno local
-    if (materiaAtiva.startsWith('tabuada')) {
-        zona.innerHTML = `
-            <div class="card-pergunta">
-                <h2 style="color: #2ecc71;">🌟 Parabéns!</h2>
-                <p>Completaste a ${materiaAtiva.replace('tabuada', 'Tabuada do ')} com sucesso!</p>
-                <div class="opcoes-container">
-                    <button class="missao" onclick="voltarSelecaoTabuada()">Treinar outra Tabuada</button>
-                </div>
-            </div>
-        `;
-        
-        // Atualiza o gráfico de tabuadas que está no topo da página
-        if (typeof atualizarPanoramaTabuadas === "function") {
-            atualizarPanoramaTabuadas();
-        }
-    } else {
-        // Fluxo normal para outras matérias (Português, etc)
-        zona.innerHTML = `
-            <div class="card-pergunta">
-                <h2>Missão Concluída!</h2>
-                <button class="missao" onclick="location.reload()">Voltar</button>
-            </div>
-        `;
+    
+    const notaFinal = acertosDestaSessao; 
+    let ganhouCredito = false;
+    
+    if (notaFinal >= 8) {
+        progresso.carteira.creditos += 1;
+        ganhouCredito = true;
+        localStorage.setItem('estudoApp', JSON.stringify(progresso));
     }
+
+    let feedback;
+    if (ganhouCredito) {
+        feedback = `
+            <div style="background:#f1c40f; border: 3px solid #d4ac0d; padding:15px; border-radius:15px;">
+                <h2 style="margin:0;">🔥 BRUTAL!</h2>
+                <p>Nota: <b>${notaFinal}/10</b></p>
+                <p style="font-size:24px;">🪙 +1 CRÉDITO</p>
+            </div>`;
+    } else {
+        feedback = `
+            <div style="background:#ecf0f1; padding:15px; border-radius:15px;">
+                <h2>Quase lá!</h2>
+                <p>Nota: <b>${notaFinal}/10</b></p>
+                <p>Precisas de pelo menos <b>8/10</b> para ganhar moedas.</p>
+            </div>`;
+    }
+
+    zona.innerHTML = `
+        <div class="card-pergunta">
+            ${feedback}
+            <button class="missao" style="margin-top:20px;" onclick="location.reload()">Continuar</button>
+        </div>
+    `;
+
+    // Limpa para a próxima partida
+    acertosDestaSessao = 0; 
 }
 
 function shuffle(array) {
@@ -385,4 +396,67 @@ function voltarSelecaoTabuada() {
     }
 }
 
+
+// 2. Função para ganhar crédito (Chamar no finalizarSessao do exercicios.js)
+function validarPremio(acertos, total) {
+    if (acertos >= 8) {
+        progresso.carteira.creditos += 1;
+        salvarProgresso();
+        return true;
+    }
+    return false;
+}
+
+// 3. Função para gastar crédito ao jogar
+function gastarCredito() {
+    if (progresso.carteira.creditos > 0) {
+        progresso.carteira.creditos -= 1;
+        progresso.carteira.totalPartidas += 1;
+        
+        // Lógica de ganhar personagem a cada 5 partidas
+        if (progresso.carteira.totalPartidas % 5 === 0) {
+            progresso.personagens += 1;
+            alert("🌟 INCRÍVEL! Desbloqueaste um novo Personagem!");
+        }
+        
+        salvarProgresso();
+        return true;
+    }
+    return false;
+}
+
+function salvarProgresso() {
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+    atualizarInterfaceMoedas();
+}
+
+function atualizarInterfaceMoedas() {
+    const creditos = progresso.carteira.creditos;
+    
+    // Atualiza no botão do Arcade
+    const elBtn = document.getElementById('contador-creditos-btn');
+    if(elBtn) elBtn.innerText = creditos;
+    
+    // Se tiver outros contadores na tela, atualiza também
+    const elGeral = document.getElementById('contador-creditos');
+    if(elGeral) elGeral.innerText = creditos;
+}
+
+function gastarCreditoParaJogar() {
+    if (progresso.carteira.creditos > 0) {
+        progresso.carteira.creditos -= 1;
+        progresso.carteira.totalPartidas += 1;
+        
+        // Ganha personagem a cada 5 partidas gastas
+        if (progresso.carteira.totalPartidas % 5 === 0) {
+            progresso.personagens += 1;
+            alert("🔥 BRUTAL! Desbloqueaste um novo Personagem!");
+        }
+        
+        localStorage.setItem('estudoApp', JSON.stringify(progresso));
+        return true;
+    }
+    return false;
+}
+window.addEventListener('load', atualizarInterfaceMoedas);
 window.onload = atualizarPanorama;
