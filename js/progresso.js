@@ -18,6 +18,10 @@ if (!progresso.carteira) {
 
 let acertosDestaSessao = 0;
 
+function registarAcerto() {
+    acertosDestaSessao++;
+}
+
 let perguntasAtuais = [];
 let indiceAtual = 0;
 let materiaAtiva = "";
@@ -29,24 +33,9 @@ let perguntasFeitasIds = [];
 
 function renderizarQuestao() {
     const zona = document.getElementById('zona-pergunta');
-    
-    if (notaFinal >= 8) {
-    // 1. Verifica se ele já tem o máximo permitido
-    if (progresso.carteira.creditos < 3) {
-        progresso.carteira.creditos += 1; // Soma +1 em vez de definir como 1
-        console.log("Crédito adicionado! Total: " + progresso.carteira.creditos);
-    } else {
-        console.log("Limite de 3 créditos atingido.");
-        // Opcional: Avisar o aluno que ele precisa gastar os créditos no Arcade
-    }
-    
-    // Salva a alteração
-    localStorage.setItem('estudoApp', JSON.stringify(progresso));
-}
+    if (!zona) return;
 
     const item = perguntasAtuais[indiceAtual];
-    
-    // Identifica o tema para o CSS
     const classeTema = item.materia === 'portugues' ? 'tema-portugues' : '';
 
     let html = `<div class="card-pergunta ${classeTema}">
@@ -55,22 +44,14 @@ function renderizarQuestao() {
         <p class="texto-pergunta">${item.q}</p>`;
 
     if (item.tipo === "input") {
-        // Renderiza campo de texto com bloqueio de sinais (+, -, .)
         html += `
             <div class="input-container">
-                <input type="number" 
-                       id="resposta-user" 
-                       class="input-resposta" 
-                       placeholder="?" 
-                       autofocus
+                <input type="number" id="resposta-user" class="input-resposta" placeholder="?" autofocus
                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                        onkeypress="if(event.key === 'Enter') verificarRespostaInput()">
-                
                 <button class="missao" onclick="verificarRespostaInput()">Verificar Conta</button>
-            </div>
-        `;
+            </div>`;
     } else {
-        // Renderiza botões com a nova classe de espaçamento
         html += `<div class="opcoes-container">`;
         item.o.forEach((op, i) => {
             html += `<button class="btn-opcao" onclick="verificarResposta(${i})">${op}</button>`;
@@ -81,12 +62,8 @@ function renderizarQuestao() {
     html += `</div>`;
     zona.innerHTML = html;
 
-    // Focar automaticamente no campo
     if(item.tipo === "input") {
-        setTimeout(() => {
-            const el = document.getElementById('resposta-user');
-            if(el) el.focus();
-        }, 100);
+        setTimeout(() => { document.getElementById('resposta-user')?.focus(); }, 100);
     }
 }
 
@@ -229,42 +206,58 @@ function iniciarDesafio() {
 
 function finalizarSessao() {
     const zona = document.getElementById('zona-pergunta');
-    
+    if (!zona) return;
+
     const notaFinal = acertosDestaSessao; 
+    let mensagemCredito = "";
     let ganhouCredito = false;
     
     if (notaFinal >= 8) {
-        progresso.carteira.creditos += 1;
-        ganhouCredito = true;
+        // Verifica se ainda tem espaço na carteira (Limite de 3)
+        if (progresso.carteira.creditos < 3) {
+            progresso.carteira.creditos += 1;
+            ganhouCredito = true;
+            mensagemCredito = "🪙 +1 CRÉDITO ADICIONADO!";
+        } else {
+            ganhouCredito = false; // Não ganha novo, mas tirou boa nota
+            mensagemCredito = "✅ Nota Fantástica! Mas já tens o limite de 3 moedas. Vai gastá-las!";
+        }
+        // Guarda sempre o progresso se houve alteração ou boa nota
         localStorage.setItem('estudoApp', JSON.stringify(progresso));
     }
 
     let feedback;
-    if (ganhouCredito) {
+    if (notaFinal >= 8) {
         feedback = `
-            <div style="background:#f1c40f; border: 3px solid #d4ac0d; padding:15px; border-radius:15px;">
-                <h2 style="margin:0;">🔥 BRUTAL!</h2>
-                <p>Nota: <b>${notaFinal}/10</b></p>
-                <p style="font-size:24px;">🪙 +1 CRÉDITO</p>
+            <div style="background:#f1c40f; border: 3px solid #d4ac0d; padding:20px; border-radius:15px; color: #2c3e50;">
+                <h2 style="margin:0; font-size: 2rem;">🔥 BRUTAL!</h2>
+                <p style="font-size: 1.2rem;">Nota: <b>${notaFinal}/10</b></p>
+                <p style="font-size:1.5rem; font-weight: bold;">${mensagemCredito}</p>
             </div>`;
     } else {
         feedback = `
-            <div style="background:#ecf0f1; padding:15px; border-radius:15px;">
-                <h2>Quase lá!</h2>
+            <div style="background:#ecf0f1; padding:20px; border-radius:15px; border: 2px solid #bdc3c7;">
+                <h2 style="color: #7f8c8d;">Quase lá!</h2>
                 <p>Nota: <b>${notaFinal}/10</b></p>
                 <p>Precisas de pelo menos <b>8/10</b> para ganhar moedas.</p>
+                <p style="font-size: 0.9rem; color: #95a5a6;">Continua a treinar!</p>
             </div>`;
     }
 
     zona.innerHTML = `
-        <div class="card-pergunta">
+        <div class="card-pergunta" style="animation: pop 0.3s ease-out;">
             ${feedback}
-            <button class="missao" style="margin-top:20px;" onclick="location.reload()">Continuar</button>
+            <button class="missao" style="margin-top:20px; width: 100%;" onclick="location.href='index.html'">Voltar ao Início</button>
         </div>
     `;
 
-    // Limpa para a próxima partida
+    // Limpa os acertos para a próxima sessão
     acertosDestaSessao = 0; 
+    
+    // Atualiza o contador visual (se a função existir no ficheiro)
+    if (typeof atualizarInterfaceMoedas === "function") {
+        atualizarInterfaceMoedas();
+    }
 }
 
 function shuffle(array) {
