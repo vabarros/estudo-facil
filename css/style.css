@@ -265,6 +265,7 @@ input[type=number] { -moz-appearance: textfield; appearance: textfield; }
 
 .img-subway { background-image: url('../img/subway.png'); }
 .img-angry { background-image: url('../img/angry.png'); }
+.img-dynno { background-image: url('../img/dynno.png'); }
 
 .badge-custo {
     background: rgba(0,0,0,0.5);
