@@ -1,11 +1,20 @@
 
-let progresso = JSON.parse(localStorage.getItem('estudoApp')) || {
+let dadosSalvos = JSON.parse(localStorage.getItem('estudoApp'));
+
+let progresso = dadosSalvos || {
     portugues: { acertos: 0, total: 0 },
     matematica: { acertos: 0, total: 0 },
     estudoMeio: { acertos: 0, total: 0 },
-    carteira: { creditos: 0, totalPartidas: 0 }, // Nova linha
-    personagens: 0 // Nova linha
+    carteira: { creditos: 0, totalPartidas: 0 },
+    personagens: 0
 };
+
+// 2. CORREÇÃO CRUCIAL: Se o usuário já tinha o app mas não a carteira, adicionamos agora
+if (!progresso.carteira) {
+    progresso.carteira = { creditos: 0, totalPartidas: 0 };
+    progresso.personagens = 0;
+    localStorage.setItem('estudoApp', JSON.stringify(progresso));
+}
 
 let acertosDestaSessao = 0;
 
