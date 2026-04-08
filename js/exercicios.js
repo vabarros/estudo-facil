@@ -1,11 +1,10 @@
 // CONFIGURAÇÕES GLOBAIS DA NUVEM
 window.bancoDeDados = []; 
-window.historicoPerguntas = {}; // Memória para não repetir
-
 const URL_DADOS = window.location.hostname.includes("github.io") 
     ? '/estudo-facil/data/questoes.json' 
     : 'data/questoes.json';
 
+// Carrega os dados assim que o arquivo é lido
 async function carregarDadosDaNuvem() {
     try {
         const resposta = await fetch(`${URL_DADOS}?t=${new Date().getTime()}`);
@@ -18,39 +17,33 @@ async function carregarDadosDaNuvem() {
 }
 carregarDadosDaNuvem();
 
+// Esta função agora serve apenas para "dar o pontapé de saída"
 async function treinar(materia) {
     if (window.bancoDeDados.length === 0) {
         await carregarDadosDaNuvem();
     }
 
+    // Normaliza o nome da matéria (de estudoMeio para estudo)
     const materiaParaFiltrar = (materia === 'estudoMeio') ? 'estudo' : materia;
     
-    // Filtra todas as perguntas da matéria
-    let todasDestaMateria = window.bancoDeDados.filter(q => q.materia === materiaParaFiltrar);
+    // Filtra as perguntas da nuvem
+    let perguntasDaMateria = window.bancoDeDados.filter(q => q.materia === materiaParaFiltrar);
 
-    if (!window.historicoPerguntas[materiaParaFiltrar]) {
-        window.historicoPerguntas[materiaParaFiltrar] = [];
+    if (perguntasDaMateria.length === 0) {
+        alert("Nenhuma pergunta encontrada para: " + materia);
+        return;
     }
 
-    // Filtra apenas as que ainda não foram feitas nesta sessão/ciclo
-    let disponiveis = todasDestaMateria.filter(q => !window.historicoPerguntas[materiaParaFiltrar].includes(q.id || q.q));
-
-    // Se houver poucas perguntas novas, reseta o histórico para não travar o jogo
-    if (disponiveis.length < 10) {
-        window.historicoPerguntas[materiaParaFiltrar] = [];
-        disponiveis = todasDestaMateria;
-    }
-
-    // Sorteia 10 e guarda no histórico
-    perguntasAtuais = disponiveis.sort(() => Math.random() - 0.5).slice(0, 10);
-    perguntasAtuais.forEach(p => window.historicoPerguntas[materiaParaFiltrar].push(p.id || p.q));
-
+    // Prepara as 10 perguntas globais que o progresso.js vai usar
+    perguntasAtuais = perguntasDaMateria.sort(() => Math.random() - 0.5).slice(0, 10);
     indiceAtual = 0;
     materiaAtiva = materia;
 
+    // Esconde o menu e mostra a zona de pergunta
     if(document.getElementById('menu-treino')) document.getElementById('menu-treino').style.display = 'none';
     const zona = document.getElementById('zona-pergunta');
     if(zona) zona.style.display = 'block';
 
+    // Chama a função que está no progresso.js para desenhar na tela
     renderizarQuestao();
 }
