@@ -229,7 +229,7 @@ function finalizarSessao() {
         if (progresso.carteira.creditos < 3) {
             progresso.carteira.creditos += 1;
             ganhouCredito = true;
-            mensagemCredito = "🪙 +1 CRÉDITO ADICIONADO!";
+            mensagemCredito = "😃+1 CRÉDITO ADICIONADO!";
         } else {
             ganhouCredito = false; // Não ganha novo, mas tirou boa nota
             mensagemCredito = "✅ Nota Fantástica! Mas já tens o limite de 3 moedas. Vai gastá-las!";
@@ -259,7 +259,7 @@ function finalizarSessao() {
     zona.innerHTML = `
         <div class="card-pergunta" style="animation: pop 0.3s ease-out;">
             ${feedback}
-            <button class="missao" style="margin-top:20px; width: 100%;" onclick="location.href='index.html'">Voltar ao Início</button>
+            <button class="missao" style="margin-top:20px; width: 100%;" onclick="location.href='../index.html'">Voltar ao Início</button>
         </div>
     `;
 
@@ -415,7 +415,7 @@ function voltarSelecaoTabuada() {
     if (btnVoltar) {
         btnVoltar.innerHTML = "⬅ Voltar ao Início";
         btnVoltar.onclick = null; // Remove o preventDefault se existir
-        btnVoltar.href = "../index.html"; 
+        btnVoltar.href = "./index.html"; 
     }
 }
 
