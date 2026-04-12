@@ -1,0 +1,16 @@
+{
+  "short_name": "BirdSiege",
+  "name": "Bird Siege: Time Attack",
+  "icons": [
+    {
+      "src": "assets/Bird_Siege_kingdom.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#4da6ff",
+  "theme_color": "#4da6ff"
+}
