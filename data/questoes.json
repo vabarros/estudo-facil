@@ -1722,5 +1722,101 @@
     "r": 2,
     "tipo": "opcao",
     "materia": "estudo"
+  },
+  {
+    "q": "Um ano completo é formado por quantos meses?",
+    "o": [
+      "7 meses",
+      "10 meses",
+      "12 meses",
+      "15 meses"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "O primeiro mês do ano é Janeiro e o segundo é Fevereiro. Qual é o nome do terceiro mês?",
+    "o": [
+      "Abril",
+      "Maio",
+      "Março",
+      "Junho"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Se o mês de Janeiro tem 31 dias e o mês de Fevereiro tem 28 dias, quantos dias têm os dois meses juntos?",
+    "o": [
+      "58 dias",
+      "59 dias",
+      "60 dias",
+      "61 dias"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Na frase 'Agosto é um mês de calor', qual é o substantivo próprio?",
+    "o": [
+      "Agosto",
+      "Mês",
+      "Calor",
+      "Caloroso"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "O primeiro semestre do ano termina no sexto mês. Qual é esse mês?",
+    "o": [
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto"
+    ],
+    "r": 1,
+    "tipo": "opcao",
+    "materia": "estudo"
+  },
+  {
+    "q": "Uma escola planeou eventos para 4 meses no primeiro semestre e 5 meses no segundo semestre. Em quantos meses do ano haverá eventos?",
+    "o": [
+      "7 meses",
+      "8 meses",
+      "9 meses",
+      "10 meses"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
+  },
+  {
+    "q": "Qual é a separação silábica correta da palavra 'Dezembro'?",
+    "o": [
+      "De-zem-bro",
+      "De-ze-mbro",
+      "Dez-em-bro",
+      "D-e-z-e-m-b-r-o"
+    ],
+    "r": 0,
+    "tipo": "opcao",
+    "materia": "portugues"
+  },
+  {
+    "q": "Se um trimestre tem 3 meses, quantos meses existem em 2 trimestres?",
+    "o": [
+      "4 meses",
+      "5 meses",
+      "6 meses",
+      "8 meses"
+    ],
+    "r": 2,
+    "tipo": "opcao",
+    "materia": "matematica"
   }
 ]
