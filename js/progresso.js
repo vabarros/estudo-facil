@@ -159,17 +159,29 @@ function mostrarFeedback(mensagem, tipo, persistente = false) {
         };
     }
 }
+
 function registrarResultado(acertou, materia) {
     if (!progresso[materia]) {
         progresso[materia] = { acertos: 0, total: 0 };
     }
 
+    const itemAtual = perguntasAtuais[indiceAtual];
+    const idPergunta = itemAtual.id || itemAtual.q;
+
     if (acertou) {
         progresso[materia].acertos++;
-        acertosDestaSessao++; // Soma o acerto para a rodada atual
+        // SÓ MARCA NO HISTÓRICO SE ACERTAR (Para ele repetir a que errou depois)
+        const matHistorico = (materia === 'estudoMeio') ? 'estudo' : materia;
+        if (!window.historicoPerguntas[matHistorico]) window.historicoPerguntas[matHistorico] = [];
+        
+        if (!window.historicoPerguntas[matHistorico].includes(idPergunta)) {
+            window.historicoPerguntas[matHistorico].push(idPergunta);
+            // SALVAR NO DISCO
+            localStorage.setItem('historico_perguntas', JSON.stringify(window.historicoPerguntas));
+        }
     }
+    
     progresso[materia].total++;
-
     localStorage.setItem('estudoApp', JSON.stringify(progresso));
     
     if (typeof atualizarPanorama === "function") atualizarPanorama();

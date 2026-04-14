@@ -1,6 +1,7 @@
 // CONFIGURAÇÕES GLOBAIS DA NUVEM
-window.bancoDeDados = []; 
-window.historicoPerguntas = {}; 
+window.bancoDeDados = [];
+
+window.historicoPerguntas = JSON.parse(localStorage.getItem('historico_perguntas')) || {};
 
 // Ajuste inteligente de caminho para subpastas ou raiz
 const caminhoBase = window.location.pathname.includes("/materias/") ? "../data/questoes.json" : "data/questoes.json";
@@ -29,27 +30,29 @@ async function treinar(materia) {
     const materiaParaFiltrar = (materia === 'estudoMeio') ? 'estudo' : materia;
     let todasDestaMateria = window.bancoDeDados.filter(q => q.materia === materiaParaFiltrar);
 
-    if (todasDestaMateria.length === 0) {
-        alert("Erro: Perguntas não encontradas para " + materiaParaFiltrar);
-        return;
-    }
-
     if (!window.historicoPerguntas[materiaParaFiltrar]) {
         window.historicoPerguntas[materiaParaFiltrar] = [];
     }
 
-    // Sistema de não repetição
-    let disponiveis = todasDestaMateria.filter(q => !window.historicoPerguntas[materiaParaFiltrar].includes(q.id || q.q));
+    // FILTRO REAL: Só o que não está no histórico global
+    let disponiveis = todasDestaMateria.filter(q => {
+        const id = q.id || q.q;
+        return !window.historicoPerguntas[materiaParaFiltrar].includes(id);
+    });
 
-    if (disponiveis.length < 5) { // Reset se houver poucas novas
+    // Se as perguntas acabarem, faz reset ao histórico desta matéria
+    if (disponiveis.length < 3) { 
         window.historicoPerguntas[materiaParaFiltrar] = [];
         disponiveis = todasDestaMateria;
     }
 
+    // Escolhe 10 perguntas aleatórias das que sobraram
     const qtd = Math.min(10, disponiveis.length);
     perguntasAtuais = disponiveis.sort(() => Math.random() - 0.5).slice(0, qtd);
-    perguntasAtuais.forEach(p => window.historicoPerguntas[materiaParaFiltrar].push(p.id || p.q));
 
+    // IMPORTANTE: Só vamos marcar como "feitas" no final ou à medida que ele acerta.
+    // Para já, vamos manter a lógica de carregar a sessão.
+    
     indiceAtual = 0;
     materiaAtiva = materia;
 
